@@ -13,6 +13,7 @@ This is a collection of just about all of my notes and blog posts.
 
 ## Lifestyle
 [Time Mangement](timemanagement)
+[Home Network](homenetworknotes)
 
 ## Linux
 [CLI Programs](cliprograms)
