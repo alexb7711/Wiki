@@ -1,4 +1,4 @@
-# February Retrospective
+[#](#) February Retrospective
 ## What Went Well
 * Good workout schedule
 * Applied to USU
@@ -130,25 +130,25 @@
 
 ## March 30 - April 5
 ### Personal
-- [ ] 2 Day Rule
-- [ ] Workout 5/7 Days
-  - [ ] Yoga 2 times
+- [X] 2 Day Rule > It is hard to keep up with this because quarantine, but it is going fine so far
+- [X] Workout 5/7 Days
+  - [ ] Yoga 2 times > Was going to, but wah
 - [ ] In bed before 10 pm every day 
 - [X] Make sure apartment is clean
 - [X] Call Mom and Dad
-- [ ] Send Mike a meme
-- [ ] Jamie Time
+- [ ] Send Mike a meme > Should do that this week
+- [X] Jamie Time
 
 ### School
 - [X] Meeting with Greg on Tuesday
-- [ ] Look at classes
-	- [ ] Make a list
-	- [ ] Check it twice 
+- [.] Look at classes
+	- [X] Make a list
+	- [ ] Narrow down list to make 42 credits (double check that)
 - [ ] Email Jennifer
 
 ### Work 
 - [X] Have a better attitude at work
-- [ ] Walk a mile a day
+- [ ] Walk a mile a day > Hard to do with quarantine
 
 ### Hobby
 - [X] Hobby 5 Hours

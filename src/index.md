@@ -11,6 +11,11 @@ This is a collection of just about all of my notes and blog posts.
 ## Bullet Journal
 [2020](bulletjournal2020)
 
+## Game Development
+[Components of a Game Framework](componentsofgameframework)
+[SFML](sfml)
+[Game Design Patterns](gamedesignpatterns)
+
 ## Lifestyle
 [Time Mangement](timemanagement)
 
@@ -21,9 +26,18 @@ This is a collection of just about all of my notes and blog posts.
 [Vim](vim)
 
 ## Programming
-[C++](c++)
+[C/C++](c++)
 [Flutter](flutter)
 [Markdown](markdown)
 
 ## School
 [Course Schedule](courseSchedule)
+
+---
+
+# Today I want to...
+- [ ] Select Classes
+- [ ] Email Droge
+- [X] Implement State Machine to SSGF
+- [ ] Research home networks
+- [X] Try chocolatey
