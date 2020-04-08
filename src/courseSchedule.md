@@ -6,10 +6,10 @@
 
 ## Spring 2021 
 * [REQUIRED: ECE 7360 - Optimal and Robust Control](ece7360)
+* [REQUIRED BY GRADUATE SCHOOL: ECE 3620 - Continuous Time Systems](ece3620) 
 
 ## Summer 2021
 * [REQUIRED: Distributed Control]()
-* [REQUIRED BY GRADUATE SCHOOL: ECE 3620 - Continuous Time Systems](ece3620) 
 
 ## Fall 2021
 * [REQUIRED: Optimization]()
@@ -23,22 +23,22 @@
 
 # Electives 
 ## Suggested
-- [ ] [Small Unmanned Aircraft]()
-- [ ] [ECE 6340 - Spacecraft Attitude Control](ece6340)
+- [X] [Small Unmanned Aircraft]()
+- [X] [ECE 6340 - Spacecraft Attitude Control](ece6340)
 
 ## ECE
 - [ ] [ECE 5640 - Real-Time Processing](ece5640)
-- [ ] [ECE 5780 - Embedded Real Time Systems](ece5780)
+- [X] [ECE 5780 - Embedded Real Time Systems](ece5780)
 
 ## CS
-- [ ] [CS 5680 - Computer Vision: Foundations and Applications](cs5680)
+- [x] [CS 5680 - Computer Vision: Foundations and Applications](cs5680)
 - [ ] [CS 6600 - AI: Advanced Intelligent Systems](cs6600)
 - [X] [CS 6630 - Fuzzy Logic and its Application](cs6630)
 - [X] [CS 7660 - Robotics and Autonomous Systems](cs7660)
 
 ## MAE
 - [ ] [MAE 5510 - Dynamics of Atmospheric Flight](mae5510)
-- [ ] [MAE 6510 - Aircraft Dynamics and Flight Simulation](mae6510)
+- [X] [MAE 6510 - Aircraft Dynamics and Flight Simulation](mae6510)
 
 ## MATH
 - [ ] [MATH 5740 - Advanced Ordinary Differential Equations](math5740)

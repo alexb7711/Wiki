@@ -5,7 +5,10 @@
 
 ### TODO
 - [X] Game Main Loop
-- [ ] Game State System
+- [X] Game State System
 - [ ] GUI generator
+	- [ ] Widget
+	- [ ] Rectangle
+	- [ ] Circle
 - [ ] Asset Manager
 - [ ] Animation Tool

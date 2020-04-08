@@ -30,4 +30,17 @@ You have a config file `~/.config/nvim/init.vim` that you want to keep track of.
 Again, from the point of view of `stow`, you are linking the path `.config/nvim/init.vim` starting at `~/` creating the link `~/.config/nvim/init.vim`.
 
 # My `stow` Workflow
+As a TL;DR, my workflow is essentially what I described above. The only difference is that I have a script that has all the name of the directories appended to the stow command. The only difference is that I also keep track of my packages in a different script by running `pacman -Qqe > PackageList.txt` which creates a list of all the packages you installed in such a way that you can use it as an input to pacman later on. So at the end of the day, you have a little scrip that looks like the following:
 
+`setConfig.sh`
+```
+#!/bin/sh
+
+stow -t ~/ aliasrc dunst git Xmodmap zshenv compton env nvim shortcutrc zsh xinitrc rofi mbsync notmuch mutt password-store gnupg ncspot vifm
+
+```
+
+`updatePackages.sh`
+```
+pacman -Qqe > PackageList.txt
+```

@@ -37,8 +37,6 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
-- [ ] Select Classes
+- [ ] Update courses document
 - [ ] Email Droge
-- [X] Implement State Machine to SSGF
-- [ ] Research home networks
-- [X] Try chocolatey
+- [ ] Implement Widgets and create a small screen

@@ -1,4 +1,4 @@
-# February Retrospective
+# February Retrospective 
 ## What Went Well
 * Got accepted
 * Arch Installed and dwm :)
@@ -30,7 +30,8 @@
 - [ ] Jamie Time
 
 ### School
-- [ ] Select classes 
+- [X] Select classes 
+- [ ] Email Gregg
 - [ ] Email Jennifer
 
 ### Work 
@@ -52,4 +53,4 @@
 - [ ] Start Editing Video > setting up Arch
 - [ ] Finish another section of time management post
 - [ ] Post to blog
-- [ ] Start game framework
+- [X] Start game framework
