@@ -7,8 +7,8 @@
 - [X] Game Main Loop
 - [X] Game State System
 - [ ] GUI generator
-	- [ ] Widget
-	- [ ] Rectangle
-	- [ ] Circle
+	- [X] Widget
+	- [ ] Button
+- [ ] Widget Stacker
 - [ ] Asset Manager
 - [ ] Animation Tool

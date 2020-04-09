@@ -37,6 +37,7 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
-- [ ] Update courses document
-- [ ] Email Droge
-- [ ] Implement Widgets and create a small screen
+- [ ] Email Tricia
+- [ ] [Workout](Workout)
+- [ ] Make buttons click able
+- [X] Create a widget stacking tool 
