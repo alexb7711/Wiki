@@ -1,14 +1,13 @@
 # SFML
 
-## Game Framework
-[Components of a Framework](componentsofframework)
-
 ### TODO
 - [X] Game Main Loop
 - [X] Game State System
-- [ ] GUI generator
+- [X] GUI generator
 	- [X] Widget
-	- [ ] Button
-- [ ] Widget Stacker
+	- [X] Button > For now
+- [X] Widget Stacker
+- [ ] FPS
+- [ ] State manager (push/pop states on request)
 - [ ] Asset Manager
 - [ ] Animation Tool

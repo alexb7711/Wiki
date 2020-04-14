@@ -37,7 +37,8 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
-- [ ] Email Tricia
-- [ ] [Workout](Workout)
-- [ ] Make buttons click able
-- [X] Create a widget stacking tool 
+- [ ] Call Jennifer
+- [ ] Email Tadd and Randy
+- [ ] Implement FPS into framework
+- [ ] Finish running cables
+- [ ] 

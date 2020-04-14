@@ -20,27 +20,27 @@
 # Weekly Goals
 ## April 6 - April 12 
 ### Personal
-- [ ] 2 Day Rule
-- [ ] Workout 5/7 Days
-  - [ ] Yoga 2 times
+- [X] 2 Day Rule
+- [X] Workout 5/7 Days
+  - [X] Yoga 2 times
 - [ ] In bed before 10 pm every day 
-- [ ] Make sure apartment is clean
-- [ ] Call Mom and Dad
-- [ ] Send Mike a meme
-- [ ] Jamie Time
+- [X] Make sure apartment is clean
+- [X] Call Mom and Dad
+- [X] Send Mike a meme
+- [X] Jamie Time
 
 ### School
 - [X] Select classes 
-- [ ] Email Gregg
+- [X] Email Gregg
 - [ ] Email Jennifer
 
 ### Work 
-- [ ] Have a better attitude at work
+- [X] Have a better attitude at work
 - [ ] Walk a mile a day
 
 ### Hobby
 - [X] Hobby 5 Hours
-- [ ] Audio Swapper [https://www.reddit.com/r/suckless/comments/c64pv8/controlling_audiobacklight_through_keys_in_dwm/](https://www.reddit.com/r/suckless/comments/c64pv8/controlling_audiobacklight_through_keys_in_dwm/)
+- [X] Audio Swapper [https://www.reddit.com/r/suckless/comments/c64pv8/controlling_audiobacklight_through_keys_in_dwm/](https://www.reddit.com/r/suckless/comments/c64pv8/controlling_audiobacklight_through_keys_in_dwm/)
   - [ ] Install steam
   - [ ] Loggout UI [https://github.com/okitavera/clearine](https://github.com/okitavera/clearine)
   - [ ] Install Davinci? 
@@ -49,8 +49,45 @@
   - [ ] Newsboat [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat)
   - [ ] MPV
   - [ ] youtube-dl
-- [ ] Animate timer how I want > setting up Arch
-- [ ] Start Editing Video > setting up Arch
+- [ ] Animate timer how I want > Doing a lot of C stuff for work
+- [ ] Start Editing Video >  moving
 - [ ] Finish another section of time management post
-- [ ] Post to blog
+- [X] Post to blog
 - [X] Start game framework
+
+## April 13 - April 19
+### Personal
+- [ ] 2 Day Rule
+- [ ] Workout 5/7 Days
+  - [ ] Yoga 2 times
+- [ ] In bed before 10 pm every day 
+- [ ] Make sure apartment is clean
+- [ ] Call Mom and Dad
+- [ ] Send Mike a meme
+- [ ] Jamie Time
+- [ ] Call Jennifer about insurance bill
+
+### School
+- [X] Check for email from Gregg
+- [X] Email Jennifer
+- [ ] Email Tadd and Dr. Christensen about being on the committee
+
+### Work 
+- [ ] Have a better attitude at work
+- [ ] Walk a mile a day
+
+### Hobby
+- [ ] Hobby 5 Hours
+  - [ ] Install steam
+  - [ ] Loggout UI [https://github.com/okitavera/clearine](https://github.com/okitavera/clearine)
+  - [ ] Install Davinci? 
+  - [ ] Jekyll [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
+  - [ ] YouTube Client [https://github.com/mps-youtube/mps-youtube](https://github.com/mps-youtube/mps-youtube)
+  - [ ] Newsboat [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat)
+  - [ ] MPV
+  - [ ] youtube-dl
+- [ ] Animate timer how I want > Doing a lot of C stuff for work
+- [ ] Start Editing Video >  moving
+- [ ] Finish another section of time management post
+- [ ] Round Corners
+- [ ] Implement FPS into framework

@@ -9,10 +9,10 @@
 * [REQUIRED BY GRADUATE SCHOOL: ECE 3620 - Continuous Time Systems](ece3620) 
 
 ## Summer 2021
-* [REQUIRED: Distributed Control]()
+* [REQUIRED: ECE 6930 - Distributed Control]()
 
 ## Fall 2021
-* [REQUIRED: Optimization]()
+* [REQUIRED: MAE 5930 - Optimization ]()
 * [REQUIRED: ECE 7560 - Optimal Estimation](Optimal Estimation)
 
 ## Spring 2022
@@ -23,7 +23,7 @@
 
 # Electives 
 ## Suggested
-- [X] [Small Unmanned Aircraft]()
+- [X] [Small Unmanned Aircraft - Ask Tricia]()
 - [X] [ECE 6340 - Spacecraft Attitude Control](ece6340)
 
 ## ECE
@@ -31,7 +31,7 @@
 - [X] [ECE 5780 - Embedded Real Time Systems](ece5780)
 
 ## CS
-- [x] [CS 5680 - Computer Vision: Foundations and Applications](cs5680)
+- [X] [CS 5680 - Computer Vision: Foundations and Applications](cs5680)
 - [ ] [CS 6600 - AI: Advanced Intelligent Systems](cs6600)
 - [X] [CS 6630 - Fuzzy Logic and its Application](cs6630)
 - [X] [CS 7660 - Robotics and Autonomous Systems](cs7660)
