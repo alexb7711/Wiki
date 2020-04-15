@@ -38,7 +38,8 @@ This is a collection of just about all of my notes and blog posts.
 
 # Today I want to...
 - [ ] Call Jennifer
-- [ ] Email Tadd and Randy
-- [ ] Implement FPS into framework
-- [ ] Finish running cables
-- [ ] 
+- [X] Test FPS
+- [ ] Resource Handler
+- [ ] Workout
+- [ ] Mail
+- [ ] Fallout?

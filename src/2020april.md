@@ -77,7 +77,7 @@
 - [ ] Walk a mile a day
 
 ### Hobby
-- [ ] Hobby 5 Hours
+- [X] Hobby 5 Hours
   - [ ] Install steam
   - [ ] Loggout UI [https://github.com/okitavera/clearine](https://github.com/okitavera/clearine)
   - [ ] Install Davinci? 
@@ -89,5 +89,5 @@
 - [ ] Animate timer how I want > Doing a lot of C stuff for work
 - [ ] Start Editing Video >  moving
 - [ ] Finish another section of time management post
-- [ ] Round Corners
-- [ ] Implement FPS into framework
+- [X] Round Corners
+- [X] Implement FPS into framework
