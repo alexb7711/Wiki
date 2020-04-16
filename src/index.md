@@ -4,17 +4,17 @@ Welcome to my Wiki!
 This is a collection of just about all of my notes and blog posts.
 
 ## Blog & Youtube
-[About Me](aboutme)
-[Jekyll](jekyll)
-[Topics Ideas](topicideas)
+[About Me](BlogAndYT/aboutme)
+[Jekyll](BlogAndYT/jekyll)
+[Topics Ideas](BlogAndYT/topicideas)
 
 ## Bullet Journal
-[2020](bulletjournal2020)
+[2020](BulletJournal/bulletjournal2020)
 
 ## Game Development
-[Components of a Game Framework](componentsofgameframework)
-[SFML](sfml)
-[Game Design Patterns](gamedesignpatterns)
+[Components of a Game Framework](GameDevelopment/componentsofgameframework)
+[SFML](GameDevelopment/sfml)
+[Game Design Patterns](GameDevelopment/gamedesignpatterns)
 
 ## Lifestyle
 [Time Mangement](timemanagement)
@@ -24,12 +24,13 @@ This is a collection of just about all of my notes and blog posts.
 [CLI Programs](cliprograms)
 [Dot Files](dotfiles)
 [Suckless](suckless)
-[Vim](vim)
+[Vim](Linux/vim)
 
 ## Programming
-[C/C++](c++)
-[Flutter](flutter)
-[Markdown](markdown)
+[API](Programming/api)
+[C/C++](Programming/c++)
+[Flutter](Programming/flutter)
+[Markdown](Programming/markdown)
 
 ## School
 [Course Schedule](courseSchedule)
