@@ -64,13 +64,16 @@
 - [ ] Make sure apartment is clean
 - [ ] Call Mom and Dad
 - [ ] Send Mike a meme
-- [ ] Jamie Time
-- [ ] Call Jennifer about insurance bill
+- [X] Jamie Time
+- [X] Call Jennifer about insurance bill
+- [ ] Finish wiring the network
+- [ ] Build the shelf
 
 ### School
 - [X] Check for email from Gregg
 - [X] Email Jennifer
-- [ ] Email Tadd and Dr. Christensen about being on the committee
+- [X] Email Tadd and Dr. Christensen about being on the committee
+- [ ] Get paperwork from Tricia
 
 ### Work 
 - [ ] Have a better attitude at work

@@ -1,7 +1,11 @@
+# Book Notes
+[Game Engine Architecture](Books/GameEngineArchitecture)
+
 # Components of a Game Framework
-1. [Main Game Loop](maingameloop)
-2. Game States
-3. [Resource Management](resourcemanagement)
-4. [Animation](animation)
-6. Graphical User Interface
-7. Utilities
+* Rendering Engine
+* Collision and Physics Engine
+* Animation System
+* Audio System
+* Game work object model
+* Artificial Intelligence system
+* etc...

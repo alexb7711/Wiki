@@ -27,9 +27,9 @@ This is a collection of just about all of my notes and blog posts.
 [Vim](Linux/vim)
 
 ## Programming
-[API](Programming/api)
 [C/C++](Programming/c++)
 [Flutter](Programming/flutter)
+[Git][Programming/git]
 [Markdown](Programming/markdown)
 
 ## School
@@ -38,9 +38,9 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
-- [ ] Call Jennifer
-- [X] Test FPS
-- [ ] Resource Handler
-- [ ] Workout
-- [ ] Mail
-- [ ] Fallout?
+- [X] Call Jennifer
+- [ ] Learn more about game engine design
+- [X] Fix Buttons
+- [X] Push/Pop States
+- [ ] Yoga
+- [ ] Get paperwork from Trisha
