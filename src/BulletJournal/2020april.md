@@ -87,7 +87,7 @@
   - [ ] Jekyll [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
   - [ ] YouTube Client [https://github.com/mps-youtube/mps-youtube](https://github.com/mps-youtube/mps-youtube)
   - [ ] Newsboat [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat)
-  - [ ] MPV
+  - [X] MPV
   - [ ] youtube-dl
 - [ ] Animate timer how I want > Doing a lot of C stuff for work
 - [ ] Start Editing Video >  moving
