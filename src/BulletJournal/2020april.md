@@ -57,17 +57,17 @@
 
 ## April 13 - April 19
 ### Personal
-- [ ] 2 Day Rule
-- [ ] Workout 5/7 Days
-  - [ ] Yoga 2 times
-- [ ] In bed before 10 pm every day 
-- [ ] Make sure apartment is clean
-- [ ] Call Mom and Dad
+- [X] 2 Day Rule
+- [X] Workout 5/7 Days
+  - [X] Yoga 2 times
+- [X] In bed before 10 pm every day 
+- [X] Make sure apartment is clean
+- [X] Call Mom and Dad
 - [ ] Send Mike a meme
 - [X] Jamie Time
 - [X] Call Jennifer about insurance bill
-- [ ] Finish wiring the network
-- [ ] Build the shelf
+- [ ] Finish wiring the network > Almost there
+- [ ] Build the shelf > Started working on it
 
 ### School
 - [X] Check for email from Gregg
@@ -76,21 +76,54 @@
 - [ ] Get paperwork from Tricia
 
 ### Work 
-- [ ] Have a better attitude at work
-- [ ] Walk a mile a day
+- [X] Have a better attitude at work
+- [X] Walk a mile a day
 
 ### Hobby
 - [X] Hobby 5 Hours
   - [ ] Install steam
-  - [ ] Loggout UI [https://github.com/okitavera/clearine](https://github.com/okitavera/clearine)
   - [ ] Install Davinci? 
   - [ ] Jekyll [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
   - [ ] YouTube Client [https://github.com/mps-youtube/mps-youtube](https://github.com/mps-youtube/mps-youtube)
   - [ ] Newsboat [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat)
-  - [ ] MPV
+  - [X] MPV
   - [ ] youtube-dl
 - [ ] Animate timer how I want > Doing a lot of C stuff for work
 - [ ] Start Editing Video >  moving
 - [ ] Finish another section of time management post
 - [X] Round Corners
 - [X] Implement FPS into framework
+## April 20 - April 26
+### Personal
+- [ ] 2 Day Rule
+- [ ] Workout 5/7 Days
+  - [ ] Yoga 2 times
+- [ ] In bed before 10 pm every day 
+- [ ] Move out of Apartment
+- [ ] Jamie Time
+- [ ] Finish wiring the network > Almost there
+- [ ] Build the shelf > Started working on it
+- [ ] Move bed downstairs
+- [ ] Get new bed
+- [ ] Create Flex Room
+
+### School
+- [ ] Check Comment from Tad on course schedule
+- [ ] Get paperwork from Tricia
+
+### Work 
+- [ ] Have a better attitude at work
+- [ ] Walk a mile a day
+
+### Hobby
+- [ ] Learn something new about vim :)
+- [ ] Hobby 5 Hours
+  - [ ] Install steam
+  - [ ] Install Davinci? 
+  - [ ] Jekyll [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
+  - [ ] YouTube Client [https://github.com/mps-youtube/mps-youtube](https://github.com/mps-youtube/mps-youtube)
+  - [ ] Newsboat [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat)
+  - [ ] youtube-dl
+- [ ] Animate timer how I want > Doing a lot of C stuff for work
+- [ ] Start Editing Video >  moving
+- [ ] Finish another section of time management post
