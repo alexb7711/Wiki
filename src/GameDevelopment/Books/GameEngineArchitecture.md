@@ -31,3 +31,28 @@ The simplest to control destruction of these singletons is to ignore the constru
 A full example is shown below in Figure \ref{fig:bruteExample}.
 
 ![A full example of using the brute method to start and stop singletons \label{fig:bruteExample}](https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/ilg5_4b.jpg)
+
+### OGRE - An Example
+Everything in OGRE is controlled by a singleton object `Ogre::Root`. It contains pointers to every other subsystem in OGRE and manages their creation and destruction. This makes it very easy for a programmer to start up OGRE - just a new instance of `Ogre::Root` and you're done. Examples are shown in Figures \ref{fig:ogrerooth}, \ref{fig:ogreroothpointers}, \ref{fig:ogrerootc}, and \ref{fig:ogrerootcmethods}.
+
+![OgreRoot.h class declaration \label{fig:ogrerooth}](https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/ilg5_5a.jpg)
+
+![OgreRoot.h member variables \label{fig:ogreroothpointers}](https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/ilg5_5b.jpg)
+
+![OgreRoot.cpp Constructor \label{ogrerootc}](https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/ilg5_6a.jpg)
+
+![OgreRoot.cpp Methods \label{ogrerootcmethods}](https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/ilg5_6b.jpg)
+
+OGRE provides a template `Ogre::Singleton` base class from which all its singleton (manager) classes derive. 
+
+## Memory Management
+Memory affects performance in two ways:
+1. *Dynamic memory allocation* via `malloc()` or C++'s global operator `new` is a very sow operation. We can improve the performance of our code by either avoiding dynamic allocation altogether or by making use of custom memory allocators that greatly reduce allocation cost.
+2. On modern CPUs, the performance of software is often dominated by its *memory access patterns*. Data that is located in small, contiguous blocks of memory can be operated on much more efficiently by the CPU than if the same data were to be spread out accross a wide range of memory addresses.
+
+### Optimizing Dynamic Memory Allocation
+The dynamic memory allocation via `malloc()` or `new` and `delete` operators is typically very slow. The high cost can be attributed to two main factors. First, a heap allocator is a general purpose facility, so it must be written to handle any allocation size, from one byte to one gigabyte. This requires a lot of management overhead. Second, on most operating systems a call to `malloc()` or `free()` must first context-switch from user mode into kernel mode, process the request and then context-switch back to the program. These context switches can be very expensive. One rule of thumb in game development is:
+
+>Keep heap allocations to a minimum, and never allocate from the heap within a tight loop.
+
+

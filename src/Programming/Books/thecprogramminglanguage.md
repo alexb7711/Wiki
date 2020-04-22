@@ -449,4 +449,49 @@ main(int argc, char *argv[])
 ```
 
 ## Pointers To Functions
+In C, it is possible to define pointers to functions which can be assigned, placed in arrays, passed to functions, returned by functions, and so on. 
 
+The generic `void*` is used for pointer arguments. Any pointer can be cast to `void*` and back again without loss of information. 
+
+When creating a function that accepts function pointers:
+
+``` C
+void qsort (void* v[], int left, int right, int (*comp)(void*, void*))
+```
+
+Says that `comp` is a pointer to a function that has two `void*` as arguments.
+
+## Complicated Declarations
+``` C
+char **argv
+
+    argv:  pointer to pointer to char
+
+int (*daytab)[13]
+
+    daytab:  pointer to array[13] of int
+
+int *daytab[13]
+
+    daytab:  array[13] of pointer to int
+
+void *comp()
+
+    comp:  function returning pointer to void
+
+void (*comp)()
+
+    comp:  pointer to function returning void
+
+char (*(*x())[])()
+
+    x: function returning pointer to array[] of
+
+    pointer to function returning char
+
+char (*(*x[3])())[5]
+
+    x: array[3] of pointer to function returning
+
+    pointer to array[5] of char
+```
