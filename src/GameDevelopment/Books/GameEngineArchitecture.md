@@ -1,7 +1,9 @@
 ---
-title: Game Architecture
+title: Game Architecture 
 header-includes:
 	- \usepackage[a4paper, margin=0.5in]{geometry}
+	- \fontfamily{qag} 
+	- \renewcommand{\familydefault}{\sfdefault}
 ---
 
 # Engine Support Systems
@@ -55,4 +57,15 @@ The dynamic memory allocation via `malloc()` or `new` and `delete` operators is 
 
 >Keep heap allocations to a minimum, and never allocate from the heap within a tight loop.
 
+#### Stack Based Allocators
+Many games allocate memory in a stack-like fashion. When a new game level is loaded, memory is allocated for it. Once the level has been loaded, little or no dynamic memory allocation is taken place. At the end of the level, the data is unloaded and all of its memory can be freed. It makes a lot of sense to use a stack-like data structure for these kinds of memory allocations. 
 
+A *stack allocator* (Figure \ref{fig:stackallocator} is easy to implement. We allocate a large block of memory using `malloc()` or a global `new`, or by declaring a global array of bytes. A pointer to the top of the stack is maintained, and every time you make a request for memory, a pointer is moved to keep track of the top. Everything below that pointer is considered to be used.
+
+![A visual representation of a stack allocator \label{fig:stackallocator}](https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/fig5_1.jpg)
+
+It is important when using this kind of memory allocation, you cannot delete items in any order. The memory must be freed in the opposite order that it came in (last in first out, like a stack).
+
+Figure \ref{fig:stackallocatorclass} shows an outline of what a stack allocator class should contain. The private section is left empty
+
+!(A class declaration for a stack allocator class \label{fig:stackallocatorclass})[https://learning.oreilly.com/library/view/game-engine-architecture/9781466560017/images/ilg5_8a.jpg]

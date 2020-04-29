@@ -1,7 +1,8 @@
 # Books 
 [The C Programming Language](Books/thecprogramminglanguage)
 
-# C++
+# C/C++
+[Memory Management](CC++/memorymanagement)
 
 ## Dynamic Libraries
 Dynamic library loading is a technique that load classes and modules during runtime rather than having them statically linked during compile time. This allows developers to have more flexibility and extensibility in their design without sacrificing robustness of the design. 
@@ -157,7 +158,6 @@ int main()
 The reason for the extra parenthesis around `fun_ptr` is as follows: if we were to write `void* fun_ptr(int)`, that would declare a function that returns a void pointer. Writing it as `void (*fun_ptr)(int)` changes the precedence of the operation to show that this is a pointer to a function.
 
 ## Interesting Facts about Function Pointers
-
 1. A function pointer points to code, not to data. Typically function pointers store the start of executable code.
 2. Unlike normal pointers, we do not allocate/de-allocate memory using function pointers. 
 3. A function's name can also be used to gets the functions' address. 

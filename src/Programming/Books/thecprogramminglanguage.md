@@ -495,3 +495,415 @@ char (*(*x[3])())[5]
 
     pointer to array[5] of char
 ```
+
+# Structures
+A `struct` declaration defines a type. The right brace that terminates the list of members may be followed by a list of variables, just as for any basic type. That is, 
+
+``` C
+struct {...} x, y, z;
+```
+
+A structure declaration that is not followed by  a list of variables reserves no storage; it merely describes a template or the shape of a structure. If the declaration is tagged, however; the tag can be used later in definitions of instances of the structure. For example:
+
+``` C
+struct point pt;
+```
+
+Is analogous to `int c`.
+
+## Arrays of Structures
+When defining an array of structures, it is acceptable to define it in the following manner:
+
+```C
+struct key {
+
+    char *word;
+
+    int count;
+
+} keytab[] = {
+
+    "auto", 0,
+
+    "break", 0,
+
+    "case", 0,
+
+    "char", 0,
+
+    "const", 0,
+
+    "continue", 0,
+
+    "default", 0,
+
+    /* ... */
+
+    "unsigned", 0,
+
+    "void", 0,
+
+    "volatile", 0,
+
+    "while", 0
+
+};
+```
+
+However, it is more precise to enclose the initializers for each "row" or structure in braces:
+
+``` C
+ { "auto", 0 },
+
+ { "break", 0 },
+
+ { "case", 0 },
+
+...
+```
+
+## Table Lookup
+This section will be about writing the innards of a table-lookup package. 
+
+There are two routines that manipulate the names and replace texts. `install(s,t)` records the name s and the replacement text `t` in a table; `s` and `t` are just character strings. `lookup(s)` searches for `s` in the table, and returns a pointer to the place where it was found, or `NULL` if it wasn't there.
+
+The algorithm is a hash search—the incoming name is converted into a small non-negative integer, which is then used to index into an array of pointers. An array element points to the beginning of a linked list of blocks describing names that have that hash value. It is NULL if no names have hashed to that value.
+
+This is shown in Figure \ref{fig:hashtable}.
+
+![Diagram of table lookup \label{fig:hashtable}](https://learning.oreilly.com/library/view/the-c-programming/9780133086249/graphics/f0144_01.jpg)
+
+A block in the list is a structure containing pointers to the name, the replacement text, and the next blocks in the list. A `NULL` next-pointer marks the end of the list. 
+
+``` C
+struct nlist {       /* table entry: */
+
+    struct nlist *next;   /* next entry in chain */
+
+    char *name;           /* defined name */
+
+    char *defn;           /* replacement text */
+
+};
+```
+
+The pointer array is just
+
+``` C
+#define HASHSIZE 101
+
+static struct nlist *hashtab[HASHSIZE];    /* pointer table */
+```
+
+The hashing function, which is used by both `lookup` and `install`, adds each character value in the string to a scrambled combination of the previous ones and returns the remainder modulo the array size. 
+
+``` C
+/* hash:  form hash value for string s */
+
+unsigned hash(char *s)
+
+{
+
+    unsigned hashval;
+
+
+
+    for (hashval = 0; *s != ′\0′; s++)
+
+        hashval = *s + 31 * hashval;
+
+    return hashval % HASHSIZE;
+
+}
+```
+
+The reason we return `hashval % HASHSIZE` is because `hastab` only has a size of `HASHSIZE`. In this particular instance, the hash is placing the item in a arbitrary position from 0 to `HASHSIZE` - 1.
+
+The hashing process produces a staring index in the array `hashtab`; if the string is to be found anywhere, it will be int he list of blocks beginning there. By this, it is meant that if there is a collision in the hashing, a list will be produced at that hash from which the for loop will search for the string name.
+
+``` C
+/* lookup:  look for s in hashtab */
+
+struct nlist *lookup(char *s)
+
+{
+
+    struct nlist *np;
+
+
+
+    for (np = hashtab[hash(s)]; np != NULL; np = np->next)
+
+        if (strcmp(s, np->name) == 0)
+
+            return np;  /* found */
+
+    return NULL;        /* not found */
+
+}
+```
+
+`install` returns a `NULL` if for any reason there is no room for a new entry.
+
+``` C
+struct nlist *lookup(char *);
+
+char *strdup(char *);
+
+
+
+/* install:  put (name, defn) in hashtab */
+
+struct nlist *install(char *name, char *defn)
+
+{
+
+    struct nlist *np;
+
+    unsigned hashval;
+
+
+
+    if ((np = lookup(name)) == NULL) {  /* not found */
+
+        np = (struct nlist *) malloc(sizeof(*np));
+
+        if (np == NULL ¦¦ (np->name = strdup(name)) == NULL)
+
+            return NULL;
+
+        hashval = hash(name);
+
+        np->next = hashtab[hashval];
+
+        hashtab[hashval] = np;
+
+    } else      /* already there */
+
+        free((void *) np->defn);  /* free previous defn */
+
+    if ((np->defn = strdup(defn)) == NULL)
+
+        return NULL;
+
+    return np;
+
+}
+```
+
+# Input and Output
+## Command Execution
+The function `system(char* s)` executes the commands contained in the character string `s`, then resumes execution of the current program.
+
+``` C
+system("date");
+```
+
+## Storage Management
+``` C
+void* malloc(size_t n); // returns a pointer to n bytes of uninitialized storage
+void* calloc(size_t n, size_t size); // returns a pointer to enough space for an array of n objects of the specified size. 
+free(p); // frees the space appointed to p where p was originally obtained by calling malloc or calloc.
+```
+
+# The UNIX System Interface
+## Open, Creat, Close, Unlink
+Other than the default standard input, output and error, you must explicitly open files in order to read or write them (such as with I/O manipulation with external hardware).
+
+There is a limit (often about 20) on the number of files that a program may have open simultaneously. 
+
+## Random Access - Lseek
+When necessary, a file can be read or written in any arbitrary order. The system call `lseek` provides a way to move around in a file without reading or writing any data:
+
+``` C
+long lseek(int fd, long offset, int origin);
+```
+
+`lseek` sets the position in the file whose descriptor is given. Subsequent reads and write will start at this point.
+
+## Example - A Storage Allocator
+This example creates a memory allocator that allows for non-continuous and/or segmented memory allocation as shown in Figure \ref{fig:storageexample}.
+
+![An example of how the storage allocator will work \label{fig:storageexample}](https://learning.oreilly.com/library/view/the-c-programming/9780133086249/graphics/f0185_01.jpg).
+
+`freep` is a list of pointers to the start of free areas of memory. The list contains structures of the form:
+
+``` C
+typedef long Align;  /* for alignment to long boundary */
+
+
+
+union header {       /* block header: */
+
+    struct {
+
+        union header *ptr; /* next block if on free list */
+
+        unsigned size;     /* size of this block */
+
+    } s;
+
+    Align x;         /* force alignment of blocks */
+
+};
+
+
+
+typedef union header Header;
+```
+
+The overridden `malloc` method has the form of:
+
+``` C
+static Header base;       /* empty list to get started */
+
+static Header *freep = NULL;     /* start of free list */
+
+
+
+/* malloc:  general-purpose storage allocator */
+
+void *malloc(unsigned nbytes)
+
+{
+
+    Header *p, *prevp;
+
+    Header *morecore(unsigned);
+
+    unsigned nunits;
+
+
+
+    nunits = (nbytes+sizeof(Header)−1)/sizeof(Header) + 1;
+
+    if ((prevp = freep) == NULL) {  /* no free list yet */
+
+        base.s.ptr = freep = prevp = &base;
+
+        base.s.size = 0;
+
+    }
+
+    for (p = prevp->s.ptr; ; prevp = p, p = p->s.ptr) {
+
+        if (p->s.size >= nunits) {    /* big enough */
+
+            if (p->s.size == nunits)     /* exactly */
+
+                prevp->s.ptr = p->s.ptr;
+
+            else {             /* allocate tail end */
+
+                p->s.size -= nunits;
+
+                p += p->s.size;
+
+                p->s.size = nunits;
+
+            }
+
+            freep = prevp;
+
+            return (void *)(p+1);
+
+        }
+
+        if (p == freep)  /* wrapped around free list */
+
+            if ((p = morecore(nunits)) == NULL)
+
+                return NULL;   /* none left */
+
+    }
+
+}
+```
+
+Where `morecore` is used to obtain more storage from the operating system.
+
+``` C
+#define    NALLOC    1024    /* minimum #units to request */
+
+
+
+/* morecore:  ask system for more memory */
+
+static Header *morecore(unsigned nu)
+
+{
+
+    char *cp, *sbrk(int);
+
+    Header *up;
+
+
+
+    if (nu < NALLOC)
+
+        nu = NALLOC;
+
+    cp = sbrk(nu * sizeof(Header));
+
+    if (cp == (char *) −1)    /* no space at all */
+
+        return NULL;
+
+    up = (Header *) cp;
+
+    up->s.size = nu;
+
+    free((void *)(up+1));
+
+    return freep;
+
+}
+```
+
+`free` is the last thing. It scans the free list looking for the place to insert the free block. This is either between two existing blocks or at one end of the list. In any case, if th block being freed is adjacent to either neighbor, the adjacent blocks are combined.
+
+``` C
+/* free:  put block ap in free list */
+
+void free(void *ap)
+
+{
+
+    Header *bp, *p;
+
+
+
+    bp = (Header *)ap - 1;    /* point to block header */
+
+    for (p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+
+        if (p >= p->s.ptr && (bp > p ¦¦ bp < p->s.ptr))
+
+            break;  /* freed block at start or end of arena */
+
+
+
+    if (bp + bp->s.size == p->s.ptr) { /* join to upper nbr */
+
+        bp->s.size += p->s.ptr->s.size;
+
+        bp->s.ptr = p->s.ptr->s.ptr;
+
+    } else
+
+        bp->s.ptr = p->s.ptr;
+
+    if (p + p->s.size == bp) {         /* join to lower nbr */
+
+        p->s.size += bp->s.size;
+
+        p->s.ptr = bp->s.ptr;
+
+    } else
+
+        p->s.ptr = bp;
+
+    freep = p;
+
+}
+```

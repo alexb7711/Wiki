@@ -33,14 +33,13 @@ This is a collection of just about all of my notes and blog posts.
 [Markdown](Programming/markdown)
 
 ## School
-[Course Schedule](courseSchedule)
+[Civilian Tuition Assistance](School/civta)
+[Course Schedule](School/courseSchedule)
 
 ---
 
 # Today I want to...
-- [X] Call Jennifer
-- [ ] Learn more about game engine design
-- [X] Fix Buttons
-- [X] Push/Pop States
-- [ ] Yoga
-- [ ] Get paperwork from Trisha
+- [ ] Make sure payment is made to pinnacle
+- [ ] Check if Tricia fixes the document
+- [ ] Learn about animation classes
+- [ ] DAU

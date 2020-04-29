@@ -143,3 +143,12 @@ If you are working on something and are not ready to commit them yet, but you ne
 If you don't to keep a stash, you can run `git stash drop`.
 
 If you want to make a stash a branch you can run `git stash branch [name]`, it will take the item on the top of the stash, create a branch, check it out, and apply the stash.
+
+## Deleting a Remote Branch
+If you want to create a remote branch, all you have to is push the branch by saying `git push origin [branch]`. You can also specify a new name for the remote branch by stating `git push origin [branch]:[remote branch name]` and the remote branch name will now have the name `[remote branch name]` with the content from `[branch]`. 
+
+If you want to delete a remote branch, you can do this by stating nothing in the local branch name. For example: 
+
+``` 
+git push origin :[remote branch name]
+```

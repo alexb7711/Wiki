@@ -95,29 +95,29 @@
 - [X] Implement FPS into framework
 ## April 20 - April 26
 ### Personal
-- [ ] 2 Day Rule
-- [ ] Workout 5/7 Days
-  - [ ] Yoga 2 times
-- [ ] In bed before 10 pm every day 
-- [ ] Move out of Apartment
-- [ ] Jamie Time
-- [ ] Finish wiring the network > Almost there
-- [ ] Build the shelf > Started working on it
-- [ ] Move bed downstairs
+- [X] 2 Day Rule
+- [X] Workout 5/7 Days
+  - [ ] Yoga 2 times > Should do that this week.
+- [ ] In bed before 10 pm every day > Bizzy
+- [X] Move out of Apartment
+- [X] Jamie Time
+- [X] Finish wiring the network > Almost there
+- [X] Build the shelf > Started working on it
+- [X] Move bed downstairs
 - [ ] Get new bed
-- [ ] Create Flex Room
+- [X] Create Flex Room
 
 ### School
-- [ ] Check Comment from Tad on course schedule
-- [ ] Get paperwork from Tricia
+- [X] Check Comment from Tad on course schedule
+- [X] Get paperwork from Tricia > Needs some fixing though
 
 ### Work 
-- [ ] Have a better attitude at work
-- [ ] Walk a mile a day
+- [X] Have a better attitude at work
+- [X] Walk a mile a day
 
 ### Hobby
-- [ ] Learn something new about vim :)
-- [ ] Hobby 5 Hours
+- [X] Learn something new about vim :)
+- [X] Hobby 5 Hours
   - [ ] Install steam
   - [ ] Install Davinci? 
   - [ ] Jekyll [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
@@ -126,4 +126,34 @@
   - [ ] youtube-dl
 - [ ] Animate timer how I want > Doing a lot of C stuff for work
 - [ ] Start Editing Video >  moving
-- [ ] Finish another section of time management post
+- [ ] Finish another section of time management post > moving
+## April 27 - May 1
+### Personal
+- [ ] 2 Day Rule
+- [ ] Workout 5/7 Days
+  - [ ] Yoga 2 times > Should do that this week.
+- [ ] In bed before 10 pm every day 
+- [ ] Jamie Time
+- [ ] Make sure that the $350 is payed
+- [ ] Finish cleaning up the basement
+
+### School
+- [ ] Tricia needs to fix mistakes
+- [ ] Apply for Tuition Assistance
+
+### Work 
+- [ ] Have a better attitude at work
+- [ ] Walk a mile a day
+
+### Hobby
+- [ ] Hobby 5 Hours
+  - [ ] Install steam
+  - [ ] Install Davinci? 
+  - [ ] Jekyll [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
+  - [ ] YouTube Client [https://github.com/mps-youtube/mps-youtube](https://github.com/mps-youtube/mps-youtube)
+  - [ ] Newsboat [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat)
+  - [ ] youtube-dl
+- [ ] Create an animation class SSGF.
+- [ ] Animate timer how I want > Doing a lot of C stuff for work
+- [ ] Start Editing Video >  moving
+- [ ] Finish another section of time management post > moving
