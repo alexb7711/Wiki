@@ -31,6 +31,7 @@ This is a collection of just about all of my notes and blog posts.
 [Flutter](Programming/flutter)
 [Git][Programming/git]
 [Markdown](Programming/markdown)
+[Misc][Programming/misc]
 
 ## School
 [Civilian Tuition Assistance](School/civta)
@@ -39,7 +40,8 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
-- [ ] Make sure payment is made to pinnacle
-- [ ] Check if Tricia fixes the document
-- [ ] Learn about animation classes
-- [ ] DAU
+- [ ] Make Lunch for Tomorrow
+- [ ] Tank the CRV
+- [ ] Yoga
+- [ ] Add Animation class
+- [ ] Add clock timing
