@@ -40,8 +40,3 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
-- [ ] Make Lunch for Tomorrow
-- [ ] Tank the CRV
-- [ ] Yoga
-- [ ] Add Animation class
-- [ ] Add clock timing
