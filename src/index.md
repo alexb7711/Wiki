@@ -31,6 +31,7 @@ This is a collection of just about all of my notes and blog posts.
 [Flutter](Programming/flutter)
 [Git][Programming/git]
 [Markdown](Programming/markdown)
+[Google Test](Programming/googletest)
 [Misc][Programming/misc]
 
 ## School
@@ -40,3 +41,7 @@ This is a collection of just about all of my notes and blog posts.
 ---
 
 # Today I want to...
+- [ ] Read a chapter of advanced C
+- [ ] Work on Game Framework
+- [ ] Call eye doctor
+- [ ] Make a neovim video?

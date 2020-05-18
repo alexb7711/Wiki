@@ -1,10 +1,12 @@
 # Books 
+[Advanced C Techniques & Applications](Books/advancedCtechniquesandapplications)
 [The C Programming Language](Books/thecprogramminglanguage)
 
 # C/C++
-[Callbacks](callbacks)
+[Callbacks](CC++/callbacks)
+[Extern](CC++/extern)
 [Memory Management](CC++/memorymanagement)
-[References and Pointers](referencesandpointers)
+[References and Pointers](CC++/referencesandpointers)
 
 ## Dynamic Libraries
 Dynamic library loading is a technique that load classes and modules during runtime rather than having them statically linked during compile time. This allows developers to have more flexibility and extensibility in their design without sacrificing robustness of the design. 
