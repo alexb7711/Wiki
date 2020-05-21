@@ -86,3 +86,99 @@ Application Routine -> Generic Interface Routine -> Device Dependent Routine
 ```
 
 *Any routine of the kind should be written using a layered approach, with the application routine calling the generic routine that make calls to other hardware specific functions*. The application makes calls to a set of interface functions that are to perform the hardware specific tasks. Each of these  interface functions would be implemented using the primitives of the target machine. In this way, the code contained in the application routine will be fixed; only the set of interface routines needs to be changed for a new environment.
+
+# Pointers and Dynamic Allocation 
+## Pointers and Arrays
+An array is effective only when the precise number of elements is known at compile time so that the correct storage can be allocated. If the number of elements cannot be known until run time, an array implementation either allocates too much space and wastes resources or, worse, does not allocate enough space and thereby creates a "disaster waiting to happen".
+
+### Pointers
+Pointers can be used effectively in situations where the number of elements in the data structure changes as the program is running. Two C operators, & and *, give the programmer access to pointers. 
+
+The operator `$(...)` can be read as "the address off (...)". The operator `*(...)` stands for "the context of (...)"
+
+In definitions and declarations, the `*` operator is also used to indicate that certain variables or functions are pointers. 
+
+## Storage Allocators
+When an array is defined, storage is automatically allocated by the compiler. When you are using pointers, however, you must allocate the storage.  Two C standard library functions are provided for this purpose: `malloc` (memory allocate) and `calloc` (contiguous allocate). The `malloc` function allocates a single piece of storage space, `calloc` allocates an entire set of storage locations through a single function call. In addition `calloc` fills the total storage space with zeros, but `malloc` leaves the area uninitialized.
+
+``` C
+// malloc returns a character pointer
+char * mallloc(size)
+unsigned size;
+{
+
+}
+```
+
+In the definition above, `malloc` returns a character pointer. This may seem odd because this function is to be used for allocating space for any time of element. Because all C functions must be formally defined to return a specific type of variable, a character pointer was chosen arbitrarily. However, the function properly allocates the required space in all situations. The potential mismatch of types is easily fixed with a simple cast operation. Second, notice that the argument of the function, size, indicates the amount of storage to be allocated. In practice, `size` is normally the value returned by the `sizeof` operator. You can either supply the name of a literal C variable name or expression, or you can use a standard or use-defined variable type name.
+
+## Using `calloc`
+When using `calloc`, you need to supply two pieces of information: the number of elements and the size of the individual elements.
+
+## Dealing with Changing Storage Needs
+You want to create a string copy method called `strcpy`. We can do that using the `calloc` method as shown:
+
+``` C
+char *start, *cons, *calloc();
+cons = "This is a C string constant";
+start = calloc(strlen(cons) + 1, sizeof(char));
+strcpy(start, cons);
+```
+
+Now consider the situation where you require dynamic storage allocation for a single `float` variable. First define a `float` pointer, then make a call to one of the storage allocation routines as follows:
+
+``` C
+float *place
+place = (float *) malloc (sizeof(float));
+```
+
+Even though the `malloc` or `calloc` function sense that it must reserve storage for a float-sized element, the function still returns a character pointer. Because `place` is a `float` pointer, you can correct this mismatch by a cast operation that performs type coercion, the create of a new variable having the desired type. 
+
+Because the use of this combination of storage allocation and type coercion occurs so frequently, macros are useful to implement these operations automatically. In particular you may use,
+
+
+``` C
+#define MALLOC(x)	((x*) malloc (sizeof(x)))
+#define CALLOC(n, x)	((x*) calloc (n, sizeof(x)))
+```
+
+## Using `NULL` Pointers
+A valid pointer value cannot be zero. This fact provides a scheme for detecting errors in requests for storage space.
+
+``` C
+if (place = MALLOC(float))
+{
+	// Proceed with intended action
+}
+else
+{
+	// Error
+}
+```
+
+## Freeing Blocks of Memory
+To do this, the `free` method is employed. The method has a definition of:
+
+``` C
+free(location)
+char* location
+{
+	...
+}
+```
+
+Note that the calls to free previous allocated blocks of storage can be made in any order, regardless of how the blocks were originally obtained.
+
+## Using `realoc`
+This function changes the size of a previously allocated area of memory. The form of the function is as follows:
+
+``` C
+char *realloc(location, size)
+char* location;
+unsigned size;
+{
+	...
+}
+```
+
+# Structures, Unions, and Fields
