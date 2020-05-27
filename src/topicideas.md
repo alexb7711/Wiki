@@ -62,7 +62,11 @@
   - [ ] Vim auto scripts
   - [ ] Swapping to Arch
   - [ ] Swapping to NeoVim
+	  - [ ] Async pluggin
   - [ ] Vim tips and tricks (Ctags, auto complete, handling merges with vimdiff or neovim -d)
   - [ ] dwm
   - [ ] st
   - [ ] dwmblocks
+  - [ ] stow
+  - [ ] xinitrc tricks
+  - [ ] Shell scripting tricks
