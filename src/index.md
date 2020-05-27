@@ -4,17 +4,17 @@ Welcome to my Wiki!
 This is a collection of just about all of my notes and blog posts.
 
 ## Blog & Youtube
-[About Me](aboutme)
-[Jekyll](jekyll)
-[Topics Ideas](topicideas)
+[About Me](BlogAndYT/aboutme)
+[Jekyll](BlogAndYT/jekyll)
+[Topics Ideas](BlogAndYT/topicideas)
 
 ## Bullet Journal
-[2020](bulletjournal2020)
+[2020](BulletJournal/bulletjournal2020)
 
 ## Game Development
-[Components of a Game Framework](componentsofgameframework)
-[SFML](sfml)
-[Game Design Patterns](gamedesignpatterns)
+[Components of a Game Framework](GameDevelopment/componentsofgameframework)
+[SFML](GameDevelopment/sfml)
+[Game Design Patterns](GameDevelopment/gamedesignpatterns)
 
 ## Lifestyle
 [Time Mangement](timemanagement)
@@ -24,22 +24,27 @@ This is a collection of just about all of my notes and blog posts.
 [CLI Programs](cliprograms)
 [Dot Files](dotfiles)
 [Suckless](suckless)
-[Vim](vim)
+[Vim](Linux/vim)
 
 ## Programming
-[C/C++](c++)
-[Flutter](flutter)
-[Markdown](markdown)
+[C/C++](Programming/c++)
+[Flutter](Programming/flutter)
+[Git][Programming/git]
+[Markdown](Programming/markdown)
+[Google Test](Programming/googletest)
+[Misc][Programming/misc]
+
+# Real Time Operating Systems
+[MicroC/OS I](RTOS/microci)
 
 ## School
-[Course Schedule](courseSchedule)
+[Civilian Tuition Assistance](School/civta)
+[Course Schedule](School/courseSchedule)
 
 ---
 
 # Today I want to...
-- [ ] Call Jennifer
-- [X] Test FPS
-- [ ] Resource Handler
-- [ ] Workout
-- [ ] Mail
-- [ ] Fallout?
+- [ ] Read a chapter of advanced C
+- [ ] Work on Game Framework
+- [ ] Call eye doctor
+- [ ] Make a neovim video?
