@@ -333,3 +333,98 @@ The integer after the colon is the number of bits assigned to that variable. Bec
 When the compiler encounters a field definition, the compiler allocates storage as if the field were one ore more integer variables. For example, in a very small machine that has integers stored as eight-bit quantities, a variable of type `port_t` requires two integer variable positions. On the other hand, for machines where integers are sixteen bits or larger, a single integer location suffices. 
 
 The following are important facts when using fields: the detailed storage of fields is machine dependent, arrays of fields may not be formed, and trying to take the address of a field component is illegal. 
+
+# Fucntions: Recursion and Selection 
+## Recursion
+To ensure that recursive functions are well behaved:
+1. Every time a recursive function is called, the program should first check to see whether some basic condition, such as a particular parameter equal to zero, is satisfied. If this is the case, the function should stop recursing. 
+2. Each time the function is recursively called, one or more arguments passed to the function should be "simpler" in some way. That is, the parameters should be nearer the basic condition. For example, a positive integer may be smaller on each recursive call so that eventually the value reaches zero.
+
+As an example, this factorial method demonstrates this nicely:
+
+``` C
+int fact(n)
+int n
+{
+	if (n == 0)
+		return 1;
+	else 
+		return (n * fact(n - 1));
+}
+```
+
+If desired, a restriction of not allowing negative values can be enforced by utilizing a second method to call `fact()`:
+
+``` C
+int init_fact(n)
+int n
+{
+	if (n < 0)
+		printf("ERROR\n");
+		return(n);
+	else
+		return (fact(n));
+}
+```
+
+Doing it this way makes more sense because the check for the negative value will only occur once rather than every time `fact` is called.
+
+As another example, consider the Fibonacci number sequence. The sequence is as follows:
+
+$$
+fib(0) = fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2), for integers n > 1
+$$
+
+The recursive method is as follows:
+
+``` C
+fib (n)
+int n
+{
+	if (n == 0 || n == 1)
+		return n;
+	else 
+		return(fib(n-1) + fib(n-2));
+}
+```
+
+## Iteration
+Iteration is simply the repeated execution of a block of code with local variables controlling the number of times the block is executed. The previous example are more efficiently written using iteration as follows:
+
+``` C
+int fact_it(n)
+int n
+{
+	int count, result;
+	
+	for (count = result = 1; count <= n; ++count)
+		result *= count;
+		
+	return result;
+}
+```
+
+and
+
+``` C
+int fib_it(n)
+int n
+{
+	int last = 1, prev = 1, count;
+	int result;
+	
+	if (n == 0 || n == 1)
+		return 1;
+	else
+	{
+		for (count = 2; count < n; ++count)
+			result = prev + last;
+			prev = last;
+			last = result;
+	}
+}
+```
+
+## The Choice Between Recursion and Iteration
+As a general rule, you should avoid recursion when iteration is possible and easy to find. Recursive is preferred when an iterative method is difficult to find. Recursion is also the best method when the underlying data structures in the problem are themselves recursive. 
