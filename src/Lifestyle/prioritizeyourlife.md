@@ -132,6 +132,12 @@ Lastly, find a time to keep tabs on all this stuff. I try to look at this once a
 		* Usually one of the first things I do --->
 
 ## Yearly Review
+First step in organizing is similar to how we started this whole article: with broad strokes. Taking a top down approach in this case makes it easy to disect the crucial bits to make the whole. I do this by looking at my goals and creating a yearly review. Reflect on last year, see what went well, what didn't go well, and still needs work. Here are a few personal rules of thumb that I take when doing this:
+* Take an hour or so. You have a lot to think about to take your time.
+* Just jot down all your goals, push them off to the next year if you have to. Don't limit your flow of ideas because it won't fit this year.
+* Create a seperate bucket list. What differenciates this from your goals is that you *will* achieve your goals. The bucketlist is a list of nice things that you would like to obtain, but won't feel guilty if you don't.
+* A big thing besides your goals is relfecting on who and what you were greatful for, things that you learned, how you grew as a person, and experiences you are greatful for. We don't take a lot of time to reflect on our own lives and appreciate it, and it is nice taking a step back at the entirety of the previous year and seeing everything objectively. 
+<!---
 * Take an hour
 * Long term 
 	* Doesn't have to be only for this year, get it all down
@@ -144,6 +150,7 @@ Lastly, find a time to keep tabs on all this stuff. I try to look at this once a
 	* What did you learn
 	* How did you grow
 	* What experiences are you thankful for
+--->
 
 ## Monthly Review
 * Take 30 minutes
