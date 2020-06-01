@@ -9,7 +9,7 @@ This is a collection of just about all of my notes and blog posts.
 [Topics Ideas](BlogAndYT/topicideas)
 
 ## Bullet Journal
-[2020](BulletJournal/bulletjournal2020)
+[2020](diary/diary)
 
 ## Game Development
 [Components of a Game Framework](GameDevelopment/componentsofgameframework)
