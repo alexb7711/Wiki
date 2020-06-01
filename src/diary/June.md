@@ -1,0 +1,45 @@
+# May Retrospective
+## What Went Well
+* Learning a lot with DOS and dad's old computer
+* Learning a lot with the books I am reading
+* Good mix of quality time with Jamie and Family
+* Work is going smoothly
+
+## What Didn't Go Well
+* Being forgetful lately about things that need to be done too often
+* Not a lot of patience
+* Sleep has been not the best
+* Forgot to email registrar's office
+
+## What To Work On
+* Check and update journal more often (at least once daily outside of work)
+* Slow down, it is okay
+* Yoga and relaxation before sleep, and keep the window and door open for air flow
+
+## June 1 - June 5
+### Personal
+- [ ] 2 Day Rule
+- [ ] Workout 5/7 Days
+  - [ ] Yoga 2 times 
+- [ ] Finish Cleaning Basement 
+- [ ] Jamie Time
+- [ ] Vacuum
+- [ ] Bathroom
+- [ ] Wash Cars
+- [ ] Vaccuum Cars
+- [ ] Wipe down the inside of the Cars
+
+### School
+- [ ] Contact Registrar’s Office or the place where you pay your tuition > forgot to do that
+
+### Work 
+- [ ] Have a better attitude at work
+- [ ] Walk a mile a day
+- [ ] 1 Hour DAU this week
+
+### Hobby
+- [ ] Hobby 5 Hours
+- [ ] Install Debian on server PC 
+- [ ] Start graphics on Advanced C
+- [ ] Record a video 
+- [ ] Finish another section of time management post 
