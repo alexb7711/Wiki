@@ -42,4 +42,46 @@ Task priorities are said to be *static* when the priority of each task does not 
 
 It is said to be dynamic if the priority of the task can be changed during runtime. µC/OS allows task priorities to be changed dynamically.
 
+## Priority Inversions
+Priority inversion is any situation in which a low priority task holds a resource while a higher priority task is ready to use it. In this situation the low priority task prevents the high priority task from executing until it releases the resource. To correct this situation, the priority of the low priority task can be raised while accessing the resource and restore it to its original value when done. A multitasking kernel should thus allow priorities to be changed dynamically.
 
+## Semaphores 
+Semaphores are used to:
+1. Control access to a shared resource (mutual exclusion)
+2. Signal the occurrence of an event
+3. Allow two tasks to synchronize their activities
+
+A semaphore is a key that your code acquires in order to continue execution. If the semaphore is already in use, the requesting task is suspended until the semaphore is released by its current owner. 
+
+There are two types of semaphores: binary and counting semaphores. There are generally only three operations that can be performed on a semaphore: *initialize* (also called *create*), *wait* (also called *pend*), and *signal* (also called *post*). The initial value of the semaphore must be provided when the semaphore is initialled. The waiting list of tasks is always initially empty.
+
+A task desiring the semaphore will perform a *WAIT* operation. If the semaphore is available (greater than 0), the semaphore will decrement and the task continues execution. Most kernels allow you to specify a timeout; if the semaphore is not available within a certain amount of time, the requesting task is made ready to run an error code (indicating a timeout occurred) is returned to it. 
+
+A task releases a semaphore by performing a *SIGNAL* operation. If no task is waiting for the semaphore, the semaphore value is simply incremented. If any task is waiting for the semaphore, however, one of the tasks is made ready to run and the semaphore value is no incremented; the key is given to a waiting task. Depending on the kernel used, the task which will receive the semaphore is either:
+
+1. The highest priority task waiting
+2. The first task the requested the semaphore
+
+## Mutual Exclusion
+To prevent multiple items accessing the same thing at the same time (think two tasks running on a printer at the same time), you can create exclusive access to the item (say the printer) by utilizing a binary semaphore. As an example, an RS-232C port is used by multiple tasks to send commands and receive responses from a device. The function `CommSendCmd()` is called with three arguments: the ASCII string containing the command, a pointer to the response string from the device, and finally a timeout in case the devices doesn't respond.
+
+```
+UBYTE CommSendCmd(char* cmd, char* response, UWORD timeout)
+{
+	Acquire port's semaphore;
+	Send command to the device;
+	Wait for response (with timeout);
+	if (timed out)
+	{
+		Release semaphore;
+		return(error code);
+	}
+	else
+	{
+		Release semaphore;
+		return (no error);
+	}
+}
+```
+
+Semaphores are often overused. The use of a semaphore to access a simple shared variable is overkill in some situations. The overhead of acquiring and releasing th semaphore can be time consuming. Disabling and enabling interrupts could do the job more efficiently. All real-time kernels will disable interrupts during critical sections of code. 
