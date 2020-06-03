@@ -428,3 +428,94 @@ int n
 
 ## The Choice Between Recursion and Iteration
 As a general rule, you should avoid recursion when iteration is possible and easy to find. Recursive is preferred when an iterative method is difficult to find. Recursion is also the best method when the underlying data structures in the problem are themselves recursive. 
+
+# Application Graphics
+## An Introduction to Segmentation
+Similarly to the earlier programming style introduced in this book, graphics are easily represented by grouping commands that are common to some (or all) elements. These "groups" will be called segments (much like an object). A segment can be manipulated and viewed as if it were a single entity. Segments can also refer to other segments in a hierarchical description of images. This referencing operation is known as *instancing* because an instance of one segment is included inside another.
+
+## Creating Segments 
+The steps in creating a segment are as follows:
+1. Create the segment
+2. Information is added to the segment (initialization or otherwise)
+3. The segment is closed so that it can be used. The routine that closes the segment returns a pointer to it.
+
+As an example, pseudo code is shown below for a general flow of this process.
+
+``` C
+CREATE_SEGMENT(segment_name);
+
+// Add images information
+ATTRIBUTE(...);
+PRIMITIVE(...);
+INSTANCE(...);
+...
+
+segment_pointer = CLOSE_SEGMENT();
+```
+
+A simple example of segmentation (and reuse of segments) is the graphical description of a city block consisting of four identical houses. Each house has three windows, a door, and a framework. First, create segments for the window and door:
+
+``` C
+segment_t* window;
+segment_t* door;
+segment_t* house;
+segment_t* block;
+
+CREATE_SEGMENT("window");
+
+ATTRIBUTE(BLUE);
+RECTANGLE(10, 10, 60, 80);
+RECTANGLE(10,  0, 60, 90);
+
+window = CLOSE_SEGMENT();
+
+CREATE_SEGMENT("door");
+
+ATTRIBUTE(CYAN);
+RECTANGLE(0, 0, 50, 100);
+
+door = CLOSE_SEGMENT();
+```
+
+Next, you create a house segment that instances the window and door segments:
+
+
+``` C
+CREATE_SEGMENT("house");
+
+ATTRIBUTE(YELLOW);
+RECTANGLE(100, 100, 600, 500);
+
+// Addd a line for the roof
+BEGIN_LINE();
+	CONTINUE_POINT(50, 480);
+	CONTINUE_POINT(350, 600);
+	CONTINUE_POINT(650, 480);
+ADD_LINE( END_LINE() );
+
+// Intance window and door
+INSTANCE("window", 150, 300);
+INSTANCE("window", 250, 300);
+INSTANCE("window", 350, 300);
+INSTANCE("door"  , 450, 100);
+
+house = CLOSE_SEGMENT();
+```
+
+Note how instancing is performed, the instanced segments are offset from the origin of the house segment by a specified `x` and `y` amount. This simple feature makes instancing a powerful command that allows a hierarchical representation of graphical data. Note that the segment pointer to the instance command is not supplied. The instance command assumes that the given segment will exist when the instancing segment is drawn. This allows you to create segments in any order, as long as all segments exist when they are needed by the segmentation system. Therefore, you can instance segments that have not been created yet. 
+
+The final step is to create the city block segment, which instances three houses:
+
+``` C
+CREATE_SEGMENT("block");
+
+INSTANCE("house", 0   , 0);
+INSTANCE("house", 800 , 0);
+INSTANCE("house", 1600, 0);
+INSTANCE("house", 2400, 0);
+
+block = CLOSE_SEGMENT();
+```
+
+## Using Segments
+To view the results of any (or of all segments), simply initialize your display and make the call `DISPLAY( segment_pointer);`. The reason for specifying the pointer is for efficiency of the code. Providing the pointer allows the computer to immediately start processing the image rather than having the overhead of finding the pointer associated with the name of the segment. If you would like to use names, you can create a method that returns the pointer associated to the name of the segment that is used.

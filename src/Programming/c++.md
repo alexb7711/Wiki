@@ -184,5 +184,5 @@ The reason for the extra parenthesis around `fun_ptr` is as follows: if we were 
       return 0;
     }
     ```
-4. Like normal pointers, you can make an array of function pointers. 
-5. Like normal data pointers, a function pointer can be passed as an argument and can be returned from a function. (Callbacks)
+1. Like normal pointers, you can make an array of function pointers. 
+2. Like normal data pointers, a function pointer can be passed as an argument and can be returned from a function. (Callbacks)
