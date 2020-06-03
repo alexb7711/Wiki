@@ -35,7 +35,7 @@ With a preemptive kernel, execution of the highest priority task is deterministi
 Preemptive kernels should not make use of non-reentrant functions unless exclusive access is ensured though the use of mutual exclusion semaphores, because both a low priority task and high priority task can make use of a common function. Corruption may occur if the higher priority task preempts a lower priority task which is making use of the function.
 
 ## Reentrancey
-A reentrant function is a function that can be used by more than one task without the fear of corruption. A reentrant function can be interupted at any time and resume at a later time without loss of data. Reentrant functions either use local variables (i.e. CPU registers or variables on the stack) or protect data when global variables are used. 
+A reentrant function is a function that can be used by more than one task without the fear of corruption. A reentrant function can be interrupted at any time and resume at a later time without loss of data. Reentrant functions either use local variables (i.e. CPU registers or variables on the stack) or protect data when global variables are used. 
 
 ## Static/Dynamic Priority
 Task priorities are said to be *static* when the priority of each task does not change during the application's execution. Each task is thus given a fixed priority at compile time.  
@@ -84,4 +84,37 @@ UBYTE CommSendCmd(char* cmd, char* response, UWORD timeout)
 }
 ```
 
-Semaphores are often overused. The use of a semaphore to access a simple shared variable is overkill in some situations. The overhead of acquiring and releasing th semaphore can be time consuming. Disabling and enabling interrupts could do the job more efficiently. All real-time kernels will disable interrupts during critical sections of code. 
+Semaphores are often overused. The use of a semaphore to access a simple shared variable is overkill in some situations. The overhead of acquiring and releasing th semaphore can be time consuming. Disabling and enabling interrupts could do the job more efficiently. All real-time kernels will disable interrupts during critical sections of code. You are thus basically allowed to disable interrupts for as much as the kernel does without affecting interrupt latency. 
+
+For example, supposed that two tasks are sharing a 16 bit integer. If you consider how long a processor takes to perform either task's respective operation, you do not need a semaphore to gain exclusive access to the variable. Each task simply needs to disable interrupts before performing its operation on the variable and enable interrupts when done. A semaphore should be used, however, if the variable to manipulate is a floating point and the microprocessor doesn't support floating point in hardware. In this case, the processing time could affect interrupt latency.
+
+## Deadlock (or Deadly Embrace)
+A deadlock is a situation in which two tasks are unknowingly waiting for resources that hare held by each other. For example, if task `T1` has exclusive access to resource `R1` and task `T2` has exclusive access to resource `R2`. Now if `T1` needs exclusive access to `R2` and `T2` also needs exclusive access to `R1`, neither task can continue. The simplest way to avoid this is:
+
+1. Acquire all resources before proceeding
+2. Acquire the resource in the same order
+
+## Synchronization 
+A task can by synchronized with an interrupt service routine (ISR) or another task when no data is being exchanged by using a semaphore. When used as a synchronization mechanism, the semaphore is initialized to 0. Using a semaphore for th is type of synchronization is called a *unilateral rendezvous*.
+
+Note that more than one task can be waiting for the event to occur. In this case, the kernel could signal the occurrence of the event either to:
+
+1. The highest priority task waiting for the event to occur
+2. The first task waiting for the event
+
+
+## Intertask Communication 
+It is sometimes necessary for a task or an ISR to communicate information to another task. Information may be communicated in two ways: through global data and by sending messages. Note that a task can only communicate with an ISR by using global variables.  
+
+## Message Mailbox
+Messages can be sent to a task through kernel services. The two most common kernel services for sending messages are the Message Mailbox and Message Queue. A Message Mailbox is typically a pointer size variable. Through a service provided by the kernel, a task or an ISR can deposit a message (the pointer) into this mailbox. Similarly, one or more task can receive messages through a service provided by the kernel. Both sending and receiving task will agree as to what the pointer is pointing to. 
+
+A message queue is simply an array of mailboxes.
+
+## ISR Processing
+You should consider whether the overhead involved in signaling a task is more than the processing of the interrupt. Signaling a task from an ISR (i.e. through a semaphore, mailbox, or queue) requires some processing time. If processing of your interrupt requires less than the time required to signal a task, you should consider processing the interrupt in the ISR itself. 
+
+## Non-Maskable Interrupts (NMIs)
+Sometimes, an interrupt must be serviced as quickly as possible and cannot afford to have the latency imposed by the kernel. In these situation, you may be able to use the Non-Maskable Interrupt (MSI) provided on most microprocessors. The NMI is generally reserved for drastic measures such as saving important information during a power down. 
+
+When you are servicing an NMI, you cannot use kernel services to signal a task. NMIs cannot be disable to access critical section of code. You can, however, still pass parameters to and from the NMI. Parameters passed must be global variables and the size of these variables must be read or written indivisibly, that is, not as separate byte read or write instructions. 
