@@ -38,6 +38,7 @@ This is a collection of just about all of my notes and blog posts.
 [MicroC/OS I](RTOS/microci)
 
 ## School
+[CITI](School/citi)
 [Civilian Tuition Assistance](School/civta)
 [Course Schedule](School/courseSchedule)
 
