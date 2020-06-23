@@ -40,19 +40,20 @@
     - [ ] Post once a month on blog
     - [ ] Make 5 videos
 - [X] Paperless Bullet Journaling 
-- [ ] Start PhD in August
+- [X] Start PhD in August
     - [X] Get a major professor 
-    - [ ] Get a committee
+    - [X] Get a committee
     - [X] Get letter of recommendation > (got 3)
     - [X] Apply
-- [ ] Jamie GED
+- [X] Jamie GED
 - [ ] Jamie start Bachelor's
 - [ ] 2 Day Rule
 - [ ] Build Workout App
 - [ ] Create a Game Framework with SFML
     - [ ] Make a Game
-- [ ] Go to Florida
 - [ ] Read 5 Books
+- [ ] Create Debian server
+- [ ] Start robot framework
 
 # Bucket List
 * Buy a house
