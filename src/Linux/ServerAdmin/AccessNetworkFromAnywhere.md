@@ -20,3 +20,6 @@ When your router supports DDNS services, you can simply plugin your DDNS provide
 
 ## A Local Update Client
 If your router does not support DDNS services, you will need a local client to run on a frequently used computer somewhere on your home network.
+
+# References
+[How To Geek](https://www.howtogeek.com/66438/how-to-easily-access-your-home-network-from-anywhere-with-ddns/)
