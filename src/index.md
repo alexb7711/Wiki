@@ -12,8 +12,7 @@ This is a collection of just about all of my notes and blog posts.
 [2020](diary/diary)
 
 ## Game Development
-[Components of a Game Framework](GameDevelopment/componentsofgameframework)
-[SFML](GameDevelopment/sfml)
+[Books](GameDevelopment/books)
 [Game Design Patterns](GameDevelopment/gamedesignpatterns)
 
 ## Lifestyle
@@ -24,6 +23,7 @@ This is a collection of just about all of my notes and blog posts.
 [CLI Programs](cliprograms)
 [Dot Files](dotfiles)
 [Email Server](Linux/emailserver)
+[Gitea Server](Linux/gitea)
 [Suckless](suckless)
 [Vim](Linux/vim)
 
@@ -42,7 +42,3 @@ This is a collection of just about all of my notes and blog posts.
 [CITI](School/citi)
 [Civilian Tuition Assistance](School/civta)
 [Course Schedule](School/courseSchedule)
-
----
-
-# Today I want to...
