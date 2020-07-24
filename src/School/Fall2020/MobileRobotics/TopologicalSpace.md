@@ -5,7 +5,7 @@ Topological space, in mathematics, generalization of Euclidean spaces in which t
 Ancient Greek geometers introduced Euliciean space for modeling the physical universe. The goal was to prove that all properties of the space as theorems by starting from a few fundamental properties (such as the example of there is exactly one straight line passing through two points). Later this was redefined via vector space and linear algebra which has been shown to be the equivalent asxiomatic definition. 
 
 ## Definition
-Essentially the Euclidean plane is a set of points satisfying certain relationships, expressible in terms of distance and angles. As an example, there are two fundamential operations (otherwise called as motions) on a plane. One is translation and the other rotation about a fixed point in which all the points in the plane turn about that fixed point through the same angle.
+Essentially the Euclidean (somtimes called Cartesian space) plane is a set of points satisfying certain relationships, expressible in terms of distance and angles. As an example, there are two fundamential operations (otherwise called as motions) on a plane. One is translation and the other rotation about a fixed point in which all the points in the plane turn about that fixed point through the same angle.
 
 ### Technical Definition
 A Euclidean vector space is a finite-dimensional inner product space over the real numbers. The dimension of a Euclidean space is the dimension of its associated vector space.
@@ -48,4 +48,5 @@ The elements of τ are called open sets and the collection τ is called a topolo
 # References
 [Wikipedia](https://en.wikipedia.org/wiki/Topological_space)
 [Wolfram](https://mathworld.wolfram.com/TopologicalSpace.html)
+[Wolfram Euclidean](https://mathworld.wolfram.com/EuclideanSpace.html)
 [ENCYCLOPÆDIA BRITANNICA](https://www.britannica.com/science/topological-space)
