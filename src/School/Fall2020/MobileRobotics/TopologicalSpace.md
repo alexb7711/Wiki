@@ -44,3 +44,8 @@ A topological space is an ordered pair (X, τ), where X is a set and τ is a col
 The elements of τ are called open sets and the collection τ is called a topology on X.
 
 ![Topology Examples](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Topological_space_examples.svg/360px-Topological_space_examples.svg.png)
+
+# References
+[Wikipedia](https://en.wikipedia.org/wiki/Topological_space)
+[Wolfram](https://mathworld.wolfram.com/TopologicalSpace.html)
+[ENCYCLOPÆDIA BRITANNICA](https://www.britannica.com/science/topological-space)
