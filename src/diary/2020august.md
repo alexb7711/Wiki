@@ -15,6 +15,7 @@
 * Keep up with journal
 * Keep working on relationships
 
+# Weekly Retrospectives
 ## July 27 - July 31
 ### Personal
 - [ ] 2 Day Rule 
