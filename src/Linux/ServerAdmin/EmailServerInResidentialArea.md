@@ -72,4 +72,19 @@ smtp_use_tls               = yes
 Restart postfix via `systemctl restart postfix` and try sending an email to yourself.
 
 ## Reroute incoming mail 
-First thing you need to do is to create a [rollernet.us](rollernet.us) account. Go to mail serives, select SMTP Redirection (there are only two options, but only of them work). Type in your email server 
+If you are in a residential area, you most likely need a DDNS (Dynamic Domain Name System), personally I use [Dynu](dynu.com). It is free, and easy to set up. The only thing you need to do here is create an account, go to Dynamic DNS Service, click the add button, use one of the given DNS names or type in your own. If you opted to use your own domain name on the website you got your domain name from in your "External Hosts" record type in the ip address given to you by Dynu.
+
+First thing you need to do is to create a [rollernet.us](rollernet.us) account. Go to mail derives, select SMTP Redirection (Direct Connection) (I believe that is the one that I am using. At any rate, for free accounts, only one of the SMTP redirections work). Type in your domain, and under your destination server, type your domain name again. Under port, type something like 2525 (this is the port we are going to be redirecting mail to). Now you need to set permissions for what is allowed through. In the "Mail Services" base page there is a hyper link labeled "valid user table", click that. For all domain names given, ensure that the "Default Action" is "Allow". This will allow all data incoming on port 25 be moved to port 2525. 
+
+Going back to the website you got your Domain name from. Under "Email Services" create two new entries with the "Points to" options filled out as `mail.rollernet.us` and `mail2.rollernet.us`.
+
+There are two ways you can make sure that you receive mail from this untraditional port in postfix. You can either redirect port 2525 back to port 25 on your router, or you can add the line
+
+```
+2525 inet n - y - - smtpd
+	-o content_filter=spamassassin
+```
+
+After you complete all these configurations, give everything some time for all settings to take effect (those set for the DDNS and your domain name mostely). You should now be able to send and receive email from you home server! If you have any questions about the specific setup process, I'd recommend watching [Luke Smith's Video about setting up an email server with his script](https://videos.lukesmith.xyz/videos/watch/9eac5348-7cc0-491e-ac9d-8f2ba1e3e69f). Again, all these changes are built off of the changes made by that script.
+
+Thank you for reading, and happy emailing!

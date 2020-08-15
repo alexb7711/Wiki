@@ -22,7 +22,7 @@ This is a collection of just about all of my notes and blog posts.
 ## Linux
 [CLI Programs](cliprograms)
 [Dot Files](dotfiles)
-[Email Server](Linux/emailserver)
+[Email Server](Linux/serveradmin)
 [Gitea Server](Linux/gitea)
 [Suckless](suckless)
 [Vim](Linux/vim)
