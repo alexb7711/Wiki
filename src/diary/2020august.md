@@ -68,14 +68,35 @@
 
 ## August 10 - August 4
 ### Personal
+- [X] 2 Day Rule 
+- [X] Workout 5/7 Days 
+- [X] Jamie Time
+- [ ] Vacuum  
+- [ ] Bathroom   
+- [X] Get center cap for CRV
+
+### School
+
+### Work 
+- [X] Walk a mile a day
+- [ ] 1 Hour DAU this week 
+- [ ] Go aggressive on TSP 
+
+### Hobby
+- [X] Hobby 5 Hours
+- [ ] Finish coding graphics  
+- [X] Find a X86 ArmV7 cross compiler
+
+## August 24 - August 30
+### Personal
 - [ ] 2 Day Rule 
 - [ ] Workout 5/7 Days 
 - [ ] Jamie Time
 - [ ] Vacuum  
 - [ ] Bathroom   
-- [ ] Get center cap for CRV
 
 ### School
+- [ ] Respond to Dr. Droge Email
 
 ### Work 
 - [ ] Walk a mile a day
@@ -85,4 +106,4 @@
 ### Hobby
 - [ ] Hobby 5 Hours
 - [ ] Finish coding graphics  
-- [ ] Find a X86 ArmV7 cross compiler
+- [ ] Compile Clib for arm-linux-gnueabi
