@@ -98,6 +98,7 @@
 ### School
 - [ ] Get school lab keys
 - [ ] Respond to Dr. Droge Email
+- [ ] Opt out of auto access book
 
 ### Work 
 - [ ] Walk a mile a day
