@@ -96,6 +96,7 @@
 - [ ] Bathroom   
 
 ### School
+- [ ] Get school lab keys
 - [ ] Respond to Dr. Droge Email
 
 ### Work 
