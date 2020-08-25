@@ -96,9 +96,10 @@
 - [ ] Bathroom   
 
 ### School
-- [ ] Get school lab keys
-- [ ] Respond to Dr. Droge Email
+- [X] Get school lab keys
+- [X] Respond to Dr. Droge Email
 - [ ] Opt out of auto access book
+- [ ] Move useful notes to git
 
 ### Work 
 - [ ] Walk a mile a day
