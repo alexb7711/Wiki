@@ -89,17 +89,17 @@
 
 ## August 24 - August 30
 ### Personal
-- [ ] 2 Day Rule 
-- [ ] Workout 5/7 Days 
-- [ ] Jamie Time
+- [X] 2 Day Rule 
+- [X] Workout 5/7 Days 
+- [X] Jamie Time
 - [ ] Vacuum  
-- [ ] Bathroom   
+- [X] Bathroom   
 
 ### School
 - [X] Get school lab keys
 - [X] Respond to Dr. Droge Email
 - [ ] Opt out of auto access book
-- [ ] Move useful notes to git
+- [X] Move useful notes to git
 
 ### Work 
 - [ ] Walk a mile a day
@@ -107,6 +107,6 @@
 - [ ] Go aggressive on TSP 
 
 ### Hobby
-- [ ] Hobby 5 Hours
-- [ ] Finish coding graphics  
-- [ ] Compile Clib for arm-linux-gnueabi
+- [X] Hobby 5 Hours
+- [ ] Learn SDL 
+- [X] Compile Clib for arm-linux-gnueabi

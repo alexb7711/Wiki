@@ -10,3 +10,5 @@
 [April](2020april)
 [May](2020may)
 [June](2020june)
+[July](2020july)
+[August](2020august)
