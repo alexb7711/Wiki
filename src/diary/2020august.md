@@ -102,11 +102,11 @@
 - [X] Move useful notes to git
 
 ### Work 
-- [ ] Walk a mile a day
+- [X] Walk a mile a day
 - [ ] 1 Hour DAU this week 
-- [ ] Go aggressive on TSP 
+- [X] Go aggressive on TSP 
 
 ### Hobby
 - [X] Hobby 5 Hours
-- [ ] Learn SDL 
+- [X] Learn SDL > started
 - [X] Compile Clib for arm-linux-gnueabi
