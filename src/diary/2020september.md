@@ -48,6 +48,7 @@
 - [ ] Finish lab 
 - [ ] Finish HWK 1 both classes
 - [ ] Watch lectures
+- [ ] Assigned readings
 
 ### Work 
 - [ ] Walk a mile a day
