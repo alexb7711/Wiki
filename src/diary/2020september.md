@@ -68,11 +68,11 @@
 
 ### School
 - [ ] Read Paper
-- [ ] Reading Mobile Robotics
-- [ ] Finish lab 1
+- [ ] Read Mobile Robotics
+- [ ] Finish lab 1 > Upload video
 - [ ] Finish HWK 1 Mobile Robotics
 - [ ] Review over HWK 1
-- [ ] Look over code
+- [X] Look over code
 - [ ] Watch Lectures LMC
 
 ### Work 
