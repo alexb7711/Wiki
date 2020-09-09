@@ -32,7 +32,33 @@
 - [X] Hobby 5 Hours
 - [ ] Learn SDL
 
-## August 24 - August 30
+## August 30 - September 6 
+### Personal
+- [X] 2 Day Rule 
+- [X] Workout 5/7 Days 
+- [X] Jamie Time
+- [ ] Vacuum  
+- [ ] Bathroom   
+
+### School
+- [X] Install MATLAB
+- [X] Install MAXIMA
+- [ ] Read Paper > started on it
+- [X] Get code running 
+- [ ] Finish lab > Just need to take quiz and upload video
+- [ ] Finish HWK 1 both classes
+- [X] Watch lectures
+- [X] Assigned readings
+
+### Work 
+- [X] Walk a mile a day
+- [ ] 1 Hour DAU this week 
+- [ ] Go aggressive on TSP 
+
+### Hobby
+- [ ] Hobby 1 Hour > 
+
+## September 7 - September 13
 ### Personal
 - [ ] 2 Day Rule 
 - [ ] Workout 5/7 Days 
@@ -41,14 +67,13 @@
 - [ ] Bathroom   
 
 ### School
-- [ ] Install MATLAB
-- [ ] Install MAXIMA
 - [ ] Read Paper
-- [ ] Get code running 
-- [ ] Finish lab 
-- [ ] Finish HWK 1 both classes
-- [ ] Watch lectures
-- [ ] Assigned readings
+- [ ] Reading Mobile Robotics
+- [ ] Finish lab 1
+- [ ] Finish HWK 1 Mobile Robotics
+- [ ] Review over HWK 1
+- [ ] Look over code
+- [ ] Watch Lectures LMC
 
 ### Work 
 - [ ] Walk a mile a day
@@ -56,4 +81,4 @@
 - [ ] Go aggressive on TSP 
 
 ### Hobby
-- [ ] Hobby 1 Hour
+- [ ] Hobby 1 Hour 
