@@ -52,7 +52,7 @@
 
 ### Work 
 - [X] Walk a mile a day
-- [ ] 1 Hour DAU this week 
+- [ ] 1 Hour DAR this week 
 - [ ] Go aggressive on TSP 
 
 ### Hobby
@@ -65,15 +65,16 @@
 - [ ] Jamie Time
 - [ ] Vacuum  
 - [ ] Bathroom   
+- [X] Laundry
 
 ### School
-- [ ] Read Paper
 - [ ] Read Mobile Robotics
-- [ ] Finish lab 1 > Upload video
-- [ ] Finish HWK 1 Mobile Robotics
-- [ ] Review over HWK 1
-- [X] Look over code
 - [ ] Watch Lectures LMC
+- [X] Finish HWK 1 Mobile Robotics
+- [ ] Read Paper
+- [X] Finish lab 1 > Upload video
+- [X] Review over HWK 1
+- [X] Look over code
 
 ### Work 
 - [ ] Walk a mile a day
