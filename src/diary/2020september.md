@@ -60,24 +60,71 @@
 
 ## September 7 - September 13
 ### Personal
-- [ ] 2 Day Rule 
-- [ ] Workout 5/7 Days 
-- [ ] Jamie Time
+- [X] 2 Day Rule 
+- [X] Workout 5/7 Days 
+- [X] Jamie Time
 - [ ] Vacuum  
-- [ ] Bathroom   
+- [X] Bathroom   
 - [X] Laundry
 
 ### School
 - [ ] Read Mobile Robotics
-- [ ] Watch Lectures LMC
+- [X] Watch Lectures LMC
 - [X] Finish HWK 1 Mobile Robotics
-- [ ] Read Paper
+- [X] Read Paper
 - [X] Finish lab 1 > Upload video
 - [X] Review over HWK 1
 - [X] Look over code
 
 ### Work 
 - [ ] Walk a mile a day
+- [ ] 1 Hour DAU this week 
+- [ ] Go aggressive on TSP 
+
+### Hobby
+- [ ] Hobby 1 Hour 
+
+## September 14 - September 20
+### Personal
+- [ ] 2 Day Rule 
+- [ ] Workout 5/7 Days 
+- [ ] Jamie Time
+- [ ] Vacuum  
+- [X] Bathroom   
+- [o] Laundry
+	- [ ] Clothes
+	- [X] Bed Sheets
+
+### School
+- [X] Read 
+	- [X] Mobile Robotics 
+	      - [X] PA: 2.1-2.3
+	      - [X] AI Robotics: CH 13
+	      - [X] AI Robotics: CH 14
+	- [X] LMC 
+- [X] Watch Lectures LMC
+- [X] HWK 2 
+	- [X] Mobile Robotics
+	- [X] LMC
+		- [X] Try Example 2 LCM Linearization
+- [ ] Lab 2: Create video
+
+### Research
+- [o] Read
+	- [X] Potential Field Methods
+	- [ ] Fixed Site Security Control Behavior
+- [ ] Create lecture for Potential Field Methods (pan doc slides?)
+- [X] Figure out how to create CSV
+- [ ] Run and analyze static code tools
+- [ ] Get google sheets from Anthony
+	- [ ] Figure out what he was trying to pull from data
+	- [ ] Start thinking of ways to automate
+- [o] termviz
+	- [X] Figure out how to get objects in Rviz
+	- [ ] Plot multiple robots (try to get all odom data available?)
+
+### Work 
+- [X] Walk a mile a day
 - [ ] 1 Hour DAU this week 
 - [ ] Go aggressive on TSP 
 
