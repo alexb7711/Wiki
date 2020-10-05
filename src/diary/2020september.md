@@ -12,6 +12,7 @@
 * Talk to Mike
 * Personal/School/relationships balance
 
+# Weekly Retrospectives
 ## August 24 - August 30
 ### Personal
 - [X] 2 Day Rule 
@@ -173,31 +174,45 @@
 ### Personal
 - [ ] 2 Day Rule 
 - [ ] Workout 5/7 Days 
-- [ ] Jamie Time
+- [X] Jamie Time
 - [ ] Vacuum  
-- [ ] Bathroom   
-- [ ] Laundry
-	- [ ] Clothes
+- [X] Bathroom   
+- [o] Laundry
+	- [X] Clothes
 	- [ ] Bed Sheets
 
 ### School
 - [ ] Watch Lectures LMC
-- [ ] HWK 2 
-	- [ ] Mobile Robotics 
-- [ ] Lab 4
+- [o] HWK
+	- [X] Mobile Robotics : I think I'm done
+	- [ ] LMC
+- [ ] Lab 4 > Not due till next week
 	- [ ] Complete Lab
 	- [ ] Create video
-- [ ] Take Quiz LMC
-- [ ] Reading Mobile Robotics
+- [X] Take Quiz LMC
+- [X] Reading Mobile Robotics
 
 ### Research
 - [ ] Run and analyze static code tools
+- [ ] Read paper
+	- [ ] Taxonomy multi-robot allocation
+	- [ ] Consensus-based decentralized auctions
+	- [ ] Multiagent Systems
+- [ ] Make Presentation
+- [X] Code
+	- [X] Start fixing up code
+	- [X] Make sure that you are running the right code
 - [ ] Finish script to get goal analytics 
+	* Number of collisions 
+	* Number of visits to a location 
+	* Mean time between visits to a location 
+	* Std deviation between visits to a location 
+- [ ] Start working on paper
 - [ ] termviz
 	- [ ] Plot walls
 
 ### Work 
-- [ ] Walk a mile a day
+- [X] Walk a mile a day
 
 ### Hobby
 - [ ] Hobby 1 Hour 
