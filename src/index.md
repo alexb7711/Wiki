@@ -1,5 +1,5 @@
 # Home
-Welcome to my Wiki! 
+[Welcome](Welcome) to my Wiki! 
 
 This is a collection of just about all of my notes and blog posts.
 

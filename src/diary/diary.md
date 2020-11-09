@@ -14,3 +14,4 @@
 [August](2020august)
 [September](2020september)
 [October](2020october)
+[November](2020november)
