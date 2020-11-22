@@ -57,6 +57,41 @@
       
 ## November 2 - November 8
 ### Personal
+- [X] 2 Day Rule
+- [X] Workout 5/7 Days
+- [X] Jamie Time
+- [ ] Vacuum  
+- [ ] Bathroom   
+- [ ] Laundry
+	- [ ] Clothes
+	- [ ] Bed Sheets
+
+### School
+- [X] Watch Lectures LMC
+- [X] HWK 5 MR
+- [X] Lab 8 
+	- [X] Complete Lab
+	- [X] Create video
+
+### Research
+- [ ] Run and analyze static code tools
+- [X] Make Presentation
+- [X] Code
+	- [X] SGA/Other Auction Implementation
+	- [X] Keep fixing up code
+- [ ] Plot data metrics
+- [ ] Start working on paper
+- [ ] termviz
+	- [ ] Plot walls
+
+### Work 
+- [ ] Walk a mile a day
+
+### Hobby
+- [ ] Hobby 1 Hour 
+
+## November 16 - November 22
+### Personal
 - [ ] 2 Day Rule
 - [ ] Workout 5/7 Days
 - [ ] Jamie Time
@@ -68,7 +103,10 @@
 
 ### School
 - [ ] Watch Lectures LMC
-- [ ] HWK 5 MR
+- [ ] MR Project
+	- [ ] Send proposal to Droge
+	- [ ] Start project
+- [ ] HWK 5 LMC
 - [ ] Lab 8 
 	- [ ] Complete Lab
 	- [ ] Create video
@@ -77,7 +115,7 @@
 - [ ] Run and analyze static code tools
 - [ ] Make Presentation
 - [ ] Code
-	- [ ] SGA/Other Auction Implementation
+	- [ ] Other Auction Implementation
 	- [ ] Keep fixing up code
 - [ ] Plot data metrics
 - [ ] Start working on paper
