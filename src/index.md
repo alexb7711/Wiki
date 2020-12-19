@@ -27,6 +27,9 @@ This is a collection of just about all of my notes and blog posts.
 [Suckless](suckless)
 [Vim](Linux/vim)
 
+## Math
+[Linear Algebra](math/linearalgebra)
+
 ## Programming
 [C/C++](Programming/c++)
 [Flutter](Programming/flutter)
