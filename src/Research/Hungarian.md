@@ -20,7 +20,107 @@ header-includes:
     - \lstset{postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}}
 ---
 
-# Centralized Hungarian Method
+# The Hungarian Method for the Assignment Problem
+
+## TL;DR
+***Theorem***
+
+> If a number is added to or subtracted from all the entries of any one row or column of a cost matrix, then an optimal assignment for the resulting cost matrix is also an optimal assignment for the original cost matrix.
+
+***Hungarian Algorithm***
+
+1. Subtract the smallest entry in each row from all the entires of this row
+2. Subtract the small entry in each column from all the entries of its column
+3. Draw lines through appropriate rows and columns so that all the zero entries of the cost matrix are covered and the minimum number of lines is used
+4. *Test For Optimality*: 
+   	* If the minimum number of covering lines is $n$, an optimal assignment of zeros is possible and we are finished
+	* If the minimum number of covering lines is less than $n$, an optimal assignment of zeros is not yet possible. Proceed to step 5
+5. Determine the smallest entry not covered by any line. Subtract this entry from each uncovered row, and then add it to each covered column. Return to Step 3.
+
+## The Simple Assignment Problem
+Suppose there are four individuals (1-4) are available for four jobs (1-4). This information can be represented well by a **qualification** (cost) matrix:
+
+$$
+Q = \begin{bmatrix}
+1 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+$$
+
+An assignment is said to be **complete** if it is impossible to improve an assignment by placing an unassigned individual a job for which they are unqualified for (complete but not optimal). If an assignment is complete, it is natural to attempt an improvement by means of a **transfer**. An **incomplete** assignment is an assignment for which you can select another individual for a qualified position as an example:
+
+***Complete***
+$$
+Q = \begin{bmatrix}
+1 & 1 & 1* & 0  \\
+0 & 0 & 1  & 1* \\
+0 & 0 & 0  & 1  \\
+0 & 0 & 0  & 1  \\
+\end{bmatrix}
+$$
+
+***Incomplete***
+$$
+Q = \begin{bmatrix}
+1* & 1 & 1  & 0 \\
+0  & 0 & 1* & 1 \\
+0  & 0 & 0  & 1 \\
+0  & 0 & 0  & 1 \\
+\end{bmatrix}
+$$
+
+We can say that an optimal assignment can be formulated by a sequence of transfers followed by additional assignments until this is no longer possible.
+
+Every assigned individual involved in a transfer is labeled as **essential individual** and every job assignment to an inessential individual an **essential job**. With said definition we can then state:
+
+> ***Lemma 1***. For an given assignment, if an individual is assigned to a job, then either the individual or the job is essential, not both.
+
+> ***Corollary 1***. For all assignments, the number of individuals assigned to a jobs equals the number of essential individuals and jobs.
+
+> ***Lemma 2***. For a given assignment, if an individual is assigned to a job and qualifies for another, unassigned, ob then the individual is essential.
+
+> ***Lemma 3***. For a given assignment, if every transfer leaves a job assigned then the job is essential.
+
+Combining the lemmas we find:
+
+> ***Theorem 1***: For a given assignment, if every transfer leads to a complete assignment then, for every individual qualified for a job, either the individual or the job is essential, and possibly both.
+
+> **Theorem 2**: There is an assignment which is complete after every possible transfer.
+
+Now that we can guarantee complete assignments based on transfers, lets shift toward allowing **budgets** to account for the value of an individual assigned to a job for which they are qualified. A budget is said to be **adequate** if, for every individual qualified for a job, either the individual or the job is alloted one unit, and possibly both.
+
+> ***Theorem 4***: There is an adequate budget and assignment such that the total allotment of the budget equals the number of jobs assigned to qualified individuals.
+
+We can then state: The largest number of jobs that can be assigned to qualified individuals is equal to the smallest total allotment of any adequate budget. Any assignment is optimal if and only if it is complete after every possible transfer.
+
+## The General Assignment Problem
+Suppose $n$ individuals ($i = 1 \cdots n$) are available for $n$ jobs ($j = 1 \cdots n$) and that a rating matrix $R$ is given, where $r_{ij}$ are positive integers, for all $i$ and $j$. An assignment consists of the choice of one job $j_i$ for each individual $i$ such that no job is assigned to two different individuals. Therefore the General Assignment Problem is a permutation of the sum: 
+
+$$
+r_{1j_1} + r_{2j_2} + \cdots + r_{nj_n}
+$$
+
+that produces the largest sum.
+
+The dual problem considers **adequate budgets**, that is, allotments of non-negative amounts $u_i$ to each individual and $v_i$ to each job in such a manner that the sum of the allotments to the $i^{th}$ individual and the $j^{th}$ job is not less than his rating in that job.
+
+$$
+u_i + v_j \geq r_{ij} \;\; (i, j = 1, \cdots, n)
+$$
+
+Therefore the dual to the General Assignment Problem is minimizing the sum for adequate allotment
+
+$$
+u_1 + \cdots + u_n + v1 + \cdots + v_n
+$$
+
+> ***Theorem 5***: The total allotment of any adequate budget is not less than the rating sum of any assignment
+
+It is then an immediate consequence if an adequate budget and assignment can be exhibited such that the total allotment equals the rating sum, then they must be simultaneously a solution of the assignment problem and its dual.
+
+# Centralized Hungarian Method Dissertation 
 
 ## Background
 * **Bipartite Graph**: A Graph $G = (V,E)$, where the vertex set $V$ is decomposed into two disjoint sets of vertices $A$ and $B$ respectively, such that no two vertices in the same set are adjacent. In general, it is said that $G$ has a bipartition $(A,,B)$.
