@@ -245,6 +245,16 @@ $$
 2. The row vectors of $A$ form an orthonormal set in $R^n$ with the Euclidean inner product
 3. The column vectors of $A$ for an orthonormal set in $R^n$ with the Euclidean inner product
 
+# Linear Transformations
+If $V$ and $W$ are vector spaces and F is a function that associates a unique vector in $W$ with each vector in $V$, we say $F$ **maps** $V$ into $W$ and write $F:V \rightarrow W$. Furthermore, if $F$ associates the vector $w$ with the vector $v$, we write $w = F(v)$ and say that $w$ is the **image** of $v$ under $F$.
+
+***Definition***: 
+
+> If $F:V \rightarrow W$ is a function from the vector space $V$ into the vector space $W$, then $F$ is called a **linear transformation** if:
+
+1. $F(v+v) = F(u) + F(v)$
+2. $F(ku) = kF(u)$
+
 
 
 # References
