@@ -1,4 +1,4 @@
-# Home
+[#](#) Home
 [Welcome](Welcome) to my Wiki! 
 
 This is a collection of just about all of my notes and blog posts.
@@ -29,6 +29,8 @@ This is a collection of just about all of my notes and blog posts.
 
 ## Math
 [Linear Algebra](math/linearalgebra)
+[Multi-Variable Linear Control](math/lmc)
+[Predictive Control](math/predictivecontrol)
 
 ## Programming
 [C/C++](Programming/c++)

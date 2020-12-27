@@ -1,3 +1,23 @@
+---
+title: Elementary Linear Algebra
+header-includes:
+    - \usepackage[a4paper, margin=0.5in]{geometry}
+    - \fontfamily{qag} 
+    - \lstset{breaklines=true}
+    - \lstset{language=[Motorola68k]Assembler}
+    - \lstset{basicstyle=\small\ttfamily}
+    - \lstset{extendedchars=true}
+    - \lstset{tabsize=2}
+    - \lstset{columns=fixed}
+    - \lstset{showstringspaces=false}
+    - \lstset{frame=trbl}
+    - \lstset{frameround=tttt}
+    - \lstset{framesep=4pt}
+    - \lstset{numbers=left}
+    - \lstset{numberstyle=\tiny\ttfamily}
+    - \lstset{postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}}
+---
+
 # Systems of Linear Equations and Matrices
 ## Rules of Matrix Arithmetic
 1) $A \pm  B = B \pm A$
@@ -13,10 +33,10 @@
 
 ## Elementary Matrices and Method for Finding $A^{-1}$
 Definition
-> An $nxn$ matrix is called an *elementary matrix* if it can be obtained from the $nxn$ identity matrix by performing a single elementary row operation.
+> An $n\times n$ matrix is called an *elementary matrix* if it can be obtained from the $n\times n$ identity matrix by performing a single elementary row operation.
 
 Theorem
-> If the elementary matrix $E$ results from performing a certain row operation on $I_m$ and if A is an $mxn$ matrix, the product $EA$ is the matrix that results when this same row operation is performed on A.
+> If the elementary matrix $E$ results from performing a certain row operation on $I_m$ and if A is an $m\times n$ matrix, the product $EA$ is the matrix that results when this same row operation is performed on A.
 
 ### Example
 Consider the matrix
@@ -93,7 +113,7 @@ $$
 
 ***Theorem 2***
 
-> If $A$ is an $nxn$ triangular matrix, then $det(A)$ is the product of the entries on the main diagonal; that is; $det(A) = a_{11}a_{22} \cdots a_{nn}$
+> If $A$ is an $n\times n$ triangular matrix, then $det(A)$ is the product of the entries on the main diagonal; that is; $det(A) = a_{11}a_{22} \cdots a_{nn}$
 
 ## Properties of the Determinant Function
 ***Theorem 4***
@@ -122,7 +142,7 @@ $$
 
 ***Definition***
 
-> Any $nxn$ matrix made by the cofactors of $a_{ij}$ is called the matrix of cofactors from $A$. The transpose of this matrix is called the **adjoint** of $A$ and is denoted $adj(A)$.
+> Any $n\times n$ matrix made by the cofactors of $a_{ij}$ is called the matrix of cofactors from $A$. The transpose of this matrix is called the **adjoint** of $A$ and is denoted $adj(A)$.
 
 ***Theorem 8***
 
@@ -137,6 +157,29 @@ Determinants can be computed by multiplying the entries in the first column of $
 # Vector Spaces
 ## Basis and Dissension
 You can show a system of linear equations are linearly independent and span $R^n$ by showing the matrix has a non-zero determinant.
+
+## Row and Column of A Matrix; Rank
+
+***Theorem 12***
+
+> If $A$ is any matrix, then the row space and column space have the same dimension (**rank**)
+
+***Theorem 13***
+
+> All of the following statements are equivalent
+
+1. $A$ is invertible
+2. $Ax = 0$ has only the trivial solution
+3. $A$ is row equivalent to $I$
+4. $Ax = b$ is consistent for every $n\times 1$ matrix $b$
+5. $det(A) \neq 0$
+6. $A$ has rank n
+7. The row vectors of $A$ are linear independent
+8. The column vectors of $A$ are linearly independent
+
+***Theorem 14***
+
+> A system of linear equations $Ax = b$ is consistent iff $b$ is in the column space of $A$.
 
 ## Inner Product Spaces
 ***Theorem 15***
@@ -194,7 +237,7 @@ $$
 (v)_S = (c_1, c_2, \cdots, c_n)
 $$
 
-The **coordinate matrix** of $v$ relative to $S$ is denoted by $[v]_S$ and is the $nx1$ matrix defined by: 
+The **coordinate matrix** of $v$ relative to $S$ is denoted by $[v]_S$ and is the $n\times 1$ matrix defined by: 
 
 $$
 \begin{bmatrix}
@@ -246,6 +289,7 @@ $$
 3. The column vectors of $A$ for an orthonormal set in $R^n$ with the Euclidean inner product
 
 # Linear Transformations
+## Introduction to Linear Transformations
 If $V$ and $W$ are vector spaces and F is a function that associates a unique vector in $W$ with each vector in $V$, we say $F$ **maps** $V$ into $W$ and write $F:V \rightarrow W$. Furthermore, if $F$ associates the vector $w$ with the vector $v$, we write $w = F(v)$ and say that $w$ is the **image** of $v$ under $F$.
 
 ***Definition***: 
@@ -255,7 +299,108 @@ If $V$ and $W$ are vector spaces and F is a function that associates a unique ve
 1. $F(v+v) = F(u) + F(v)$
 2. $F(ku) = kF(u)$
 
+## Properties of Linear Transformations; Kernel and Range
 
+***Definition***
+
+> if $T:V \rightarrow W$ is a linear transformation, then the set of vectors in $V$ that $T$ maps into 0 is called the **kernel** (or **nullspace**) of $T$; it is denoted by $ker(T)$. The set of all vectors in $W$ that are images under $T$ of at least one vector in $V$ is called the **range** of $T$; it is denoted by $R(T)$.
+
+**Theorem 2**
+
+> If $T:V \rightarrow W$ is a linear transformation then: 
+
+1. The kernel of $T$ is a subspace of $V$
+2. The range of $T$ is a subspace of $W$
+
+***Definition***
+
+> if $T:V \rightarrow W$ is a linear transformation, then the dimension of the range of $T$ is called the **rank of $T$** and the dimension of the kernel is called the **nullity of $T$**.
+
+***Theorem 3*** (Dimensions Theorem):
+
+> If $T:V \rightarrow W$ is a linear transformation from an n-dimensional vector space $V$ to a vector space $W$, then 
+
+$$
+rank(T) + ker(T) = n
+$$
+
+> In the special case where $V = \mathbb{R}^n$ and $W = \mathbb{R}^m$ and $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ is multiplication by an $m \times n$ matrix $A$, the dimensional theorem yields the following:
+
+$$
+nullity\; of \; T = n - rank(T) = number\; of \; columns(T) - rank(T)
+$$
+
+***Theorem 4***
+
+> If $A$ is an $m \times n$ matrix then the dimension of the solution space of $Ax = 0$ is
+
+$$
+n - rank(A)
+$$
+
+## Matrices of Linear Transformations
+If $V$ and $W$ are any finite dimension vector space, then with some ingenuity, any linear transformation $T:V \rightarrow W$ can be regarded as a matrix transformation. The basic idea is to choose bases for $V$ and $W$ and to work with the coordinate matrices relative to these bases rather than with the vectors themselves. To be specific, suppose $V$ is $n$-dimensional and $W$ is $m$-dimensional. If we choose bases $B$ and $B'$ then for each $x$ in $V$, the coordinate (column) matrix $[x]_b$ will be a vector in $\mathbb{R}^n$ and the coordinate matrix $[T(x)]_{B'}$ will be some vector in $\mathbb{R}^m$. **Thus in the process of mapping $x$ into $T(x)$, the linear transformation $T$ "generates" a mapping from $\mathbb{R}^n$ to $\mathbb{R}^m$ by sending $[x]_B$ into $[T(x)]_{B'}$**. 
+
+$$
+A[x]_B = [T(x)]_{B'}
+$$
+
+To find this transform you can follow three steps: 
+
+1. Compute the coordinate matrix $[x]_B$
+2. Multiply $[x]_B$ on the left by $A$ to produce $[T(x)]_{B'}$.
+3. Reconstruct $T(x)$ from its coordinate matrix $[T(x)]_{B'}$
+
+## Similarity
+***Definition***
+
+> If $A$ and $B$ are square matrices, we say that $B$ is similar to $A$ if there is an invertible matrix $P$ such that $B = P^{-1}AP$
+
+# Eigenvalues, Eigenvectors
+## Eigenvalues and Eigenvectors
+
+***Eigenvalues***
+
+$$
+det(\lambda I - A) = 0
+$$
+
+***Eigenvectors***
+
+$$
+Ax = \lambda x
+$$
+
+Where $x$ is the eigenvector.
+
+## Diagonalization 
+
+***Definition***
+
+> A square matrix is **diagonalizable** if there is an invertible matrix $P$ such that $P^{-1}AP$ is diagonal; the matrix $P$ is said to diagonalize $A$.
+
+The following procedure will diagonalize a matrix: 
+
+1. Find $n$ linearly independent eigenvectors of $A$, $p_1, p_2, \cdots$
+2. For the matrix P having $p_1, p_2, \cdots$ as its column vectors
+3. The matrix $P^{-1}AP$ will then be diagonal with $\lambda_1, \lambda_2, \cdots, \lambda_n$ as its successive diagonal entries, where $\lambda_i$ is the eigenvalue corresponding to $p_i, \; i = 1,2,3,\cdots,n$
+
+## Orthogonal Digitalization; Symmetric Matrices
+***Definition***
+
+> A square matrix $A$ is called **orthogonally diagonalizable** if there is an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal; that matrix $P$ is said to **orthogonally diagonalize** $A$.
+
+An orthogonally diagonalizable matrix is **symmetric**. From this we can say:
+
+***Theorem***
+
+> If $A$ is symmetric, then eigenvectors from different eigenspaces are orthogonal. 
+
+As a consequence, the following procedure will find an orthonormal diagonalized matrix 
+
+1. Find a basis for each eigenspace of $A$
+2. Apply the Gram-Schmidt process to each of these basis to obtain and orthonormal basis from each eigenspace
+3. From the matrix $P$ whose columns are the basis vectors constructed in step 2; this matrix orthogonally diagonalizes $A$
 
 # References
 * Elementary Linear Algebra - Howard Anton
