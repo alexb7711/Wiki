@@ -18,6 +18,15 @@ header-includes:
     - \lstset{postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}}
 ---
 # Main Concepts
+Model predictive control is the only advanced control technique that has see widespread impact on industrial process control. ***It's the only control technology that can deal with constraints***.
+
+## Principles of Predictive Control
+* Prediction
+	* Why is prediction important: We care about the goal to be achieved more than what is currently happening within the system.
+
+* Receding Horizon
+	* What is receding horizon: Some fixed interval (period of time) over which we consider the future (Car headlight analogy).
+
 ## Optimization Problems
 An optimization problem is generally formulated as
 
@@ -80,7 +89,28 @@ $$
 > Consider a convex optimization problem and let $\bar{z}$ be a local optimizer. Then $\bar{z}$ is a global optimizer. 
 
 ## Optimality Conditions
+### Optimality Conditions For Unconstrained Problems
 
+***Theorem 1.2*** (Necessary Condition):
+
+> Suppose that $f:\mathbb{R}^s \rightarrow \mathbb{R}$ is differential at $\bar{z}$. If there exists a vector $d$ such that $\nabla f(\bar{z})'d < 0$, then there exists a $\delta > 0$ such that $f(\bar{z}+\lambda d) < f(\bar{z})$ for a $\lambda \in (0,\delta )$.
+
+***Theorem 1.3*** (Sufficient Condition):
+
+> Suppose that $f:\mathbb{R}^s \rightarrow \mathbb{R}$ is twice differentiable at $\bar{z}$. If $\nabla f(\bar{z}) = 0$ and the Hessian ($\nabla^2 f(\bar{z})$) of $f(z)$ at $\bar{z}$ is positive definite, then $\bar{z}$ is a local minimizer.
+
+***Theorem 1.4***: (Necessary and Sufficient Condition):
+
+> Supposed that $f:\mathbb{R}^s \rightarrow \mathbb{R}$ is differentiable at $\bar{z}$. If $f$ is convex, then $\bar{z}$ is a global minimizer iff $\nabla f(\bar{z}) = 0$
+
+## Lagrange Duality Theory
+Consider the optimality problem. Any feasible point $\bar{z}$ provides an upper bound to the optimal value $f(\bar{z}) \geq f*$ ($f*$ being the optimal value). The Lagrange Duality Theory generates a lower boundary for $f*$.
+
+Starting from the same problem, we construct another problem with different variables and constrains. In other words, from the primal problem, we will develop the dual problem.
+
+$$
+L(z,u,v) = f(z) + u_1 g_1 (z) + \cdots + u_m g_m(z) + v_1 h_1(z) + \cdots + v_p h_p(z)
+$$
 
 # References
 
