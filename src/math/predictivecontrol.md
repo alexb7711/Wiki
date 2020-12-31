@@ -1,5 +1,5 @@
 ---
-title: Predictive Control
+title: Model Predictive Control
 header-includes:
     - \usepackage[a4paper, margin=0.5in]{geometry}
     - \usepackage{listings}
@@ -21,11 +21,67 @@ header-includes:
 Model predictive control is the only advanced control technique that has see widespread impact on industrial process control. ***It's the only control technology that can deal with constraints***.
 
 ## Principles of Predictive Control
-* Prediction
-	* Why is prediction important: We care about the goal to be achieved more than what is currently happening within the system.
+1. Moving prediction horizon window
+2. Receding horizon control that only executes the next step
+3. Need for current-time information to make the next prediction
+4. Model that describes the system dynamics used for prediction
+5. Objective criterion based on measured difference between desired and actual response
 
-* Receding Horizon
-	* What is receding horizon: Some fixed interval (period of time) over which we consider the future (Car headlight analogy).
+# Model Choice for MPC
+* Finite Impulse Response
+* Step Response
+* Transfer Function
+* State-Space
+
+## Finite Impulse Response
+For single input single output (SISO) we write the convolution summation as:
+
+$$
+y_k = \sum_{i = 1}^N g_i u_{k-i}
+$$
+
+where $u_k$ and $y_k$ denote the input and output sequence elements respectively and $g_i$ compromise the first $N$ coefficients of an infinite Taylor Series. 
+
+This model generalizes easily to the MIMO case by using matrices.
+
+## Step Response
+$$
+h(z) = \sum_{i = 1}^{\infty} h_i z^{-1}
+$$
+
+where
+
+$$
+h(z) = \frac{g(z)}{\Delta (z)}
+$$
+
+and $\Delta (z)$ is the one-step difference operator $1-z^{-1}$.
+
+## Transfer Function
+Consider the SISO case:
+
+$$
+a(z) y_k = b(z) u_k
+$$
+
+where the form
+
+$$
+\frac{b(z)}{a(z)}
+$$
+
+gives a transfer function representation for the output-input ratio for the corresponding z-transforms.
+
+## State Space
+Assume a linearized, discrete-time, state-space model:
+
+$$
+\begin{array}{rl}
+x(k+1) = & Ax(k) + Bu(k) \\
+y(k)   = & C_y x(k)      \\
+z(k)   = & C_z x(k)      \\
+\end{array}
+$$
 
 ## Optimization Problems
 An optimization problem is generally formulated as
@@ -111,6 +167,132 @@ Starting from the same problem, we construct another problem with different vari
 $$
 L(z,u,v) = f(z) + u_1 g_1 (z) + \cdots + u_m g_m(z) + v_1 h_1(z) + \cdots + v_p h_p(z)
 $$
+
+## Strong Duality and Constrained Qualifications
+If the cost of the dual problem is equal to the cost of the primary problem ($d* = f*$) then we have **strong duality**. In general, strong duality does not hold, even from convex primal problems (but can only hold if some suitable convexity conditions are satisfied). 
+
+***Slater's Condition***:
+
+> Consider the optimality problem stated above. There exists a $\hat{z} \in \mathbb{R}^s$ which belongs to the relative interior of the problem domain $Z$, which is feasible ($g(\hat{z}) \leq 0, h(\hat{z}) = 0$) and for which $g_j (\hat{z}) < 0$ for all $j$ for which $g_j$ is not an affine function.
+
+
+***Theorem 1.5*** (Slater's Theorem):
+
+> Consider the primal and its dual problem. If the primal problem is convex, Slater's condition holds and $f*$ is bounded then $d* = f*$.
+
+Recall that this is for the unconstrained problem.
+
+### Karush-Kuhn-Tucker Conditions
+The Primal and dual optimal pair $z*,\;(u*,v*)$ of an optimization problem with differentiable cost and constraints and zero duality gap, have to satisfy the following conditions:
+
+$$
+\begin{array}{rll}
+\nabla f(z*) + \sum_{i} u_i * \nabla g_i (z*) + \sum_j v_j * \nabla h_j (z*) = 0 &                   \\
+u_i * g_i (z*) = 0                                                               & i = 1, \cdots , m \\
+u_i * \geq 0                                                                     & i = 1, \cdots , m \\
+g_i (z*) \leq 0                                                                  & i = 1, \cdots , m \\
+h_j (z*) = 0                                                                     & j = 1, \cdots , p \\
+\end{array}
+$$
+
+Where: 
+
+* $g_i (z*) \leq 0$ and $h_j (z*) = 0$ are the primal feasibility conditions
+* $u_i * \geq 0$ is the dual feasibility condition
+* $u_i * g_i (z*) = 0$ is the complimentary slack condition
+
+***Theorem 1.6***
+
+> Consider the primal optimization problem. Also suppose the problem is convex and that cost and constraints $f$, $g_i$, and $h_i$ are differentiable and feasible $z*$. If the problem satisfies Slater's condition then $z*$ is optimal iff there are $(u*, v*)$ that, together with $z*$, satisfy the KKt conditions.
+
+**If a convex optimization problem with differentiable objective and constraint functions has linearly independent set of active constraint gradients, then the KKT conditions provide necessary and sufficient conditions for optimality.**
+
+# Linear and Quadratic Optimization
+## Linear Programming
+When the cost and constraints of the continuous optimization problem are affine, the problem is called a linear program. The most general form is:
+
+$$
+\begin{array}{lll}
+inf_z                  & c'z       \\
+subj. \; to            & Gz \leq w \\
+\end{array}
+$$
+
+Where $G \in \mathbb{R}^{m\times s},\; w \in \mathbb{R}^m$.
+
+### Geometric Interpretation and Solution Properties
+Consider the Linear Program above and suppose:
+
+$$
+Z* = argmin_{z \in P} c'z
+$$
+
+where $Z*$ is set of optimizer and $f*$ is the optimal value. There are three cases that can occur:
+
+1. The LP is unbounded ($f* = - \infty$)
+2. The LP solution is bounded ($f* > - \infty$ and the optimizer is unique. $z* = Z*$ is a singleton.
+3. The LP solution is bounded and there are multiple optima. $Z*$ is an subset of $\mathbb{R}^s$ which can be bounded or unbounded.
+
+### Dual of LP
+Consider the primary LP given above. The dual is written as; 
+
+$$
+\begin{array}{lll}
+inf_z                   & -u'w      \\
+subj. \; to             & -G'u = -c \\
+                        & u \geq 0  \\
+\end{array}
+$$
+
+**Note that LP's feasibility implies strong duality**.
+
+### KKT Conditions for LP
+$$
+\begin{array}{rll}
+G'u+c = 0             &                  \\
+u_i (G_i z - w_i) = 0 & i = 1, \cdots, m \\
+u \geq 0              &                  \\
+Gz-w = 0              &                  \\
+\end{array}
+$$
+
+### Active Constraints and Degeneracies
+***Definition***
+
+> We say that Linear Independence Constraint Qualification (LICQ) holds at $z*$ if the matrix $G_{A(z*)}$ has full row rank.
+
+Where 
+
+$$
+\begin{array}{rcl}
+A(z)                     & = & \{i \in I: G_i z = w_i\} \\
+NA(z)                    & = & \{i \in I: G_z < w_i\}   \\
+\end{array}
+$$
+
+$NA$ standing for Not Active constraint and $A$ standing for active constraint.
+
+$$
+\begin{array}{rcl}
+G_{A(z*)}z*              & = & w_{A(z*)}  \\
+G_{NA(z*)}z* 		 & < & w_{NA(z*)} \\
+\end{array}
+$$
+
+**A violation of LICQ is equivalent to having more than $s$ constraints active at an optimal vertex.**
+
+***Definition 2.2***
+
+> The LP is said to be a primal degenerate if there exists a $z* \in Z*$ such that the LICQ does not hold at $z*$.
+
+***Definition 2.3***
+
+> The LP is said to be dual degenerate if its dual problem is primal degenerate.
+
+
+***Lemma 2.2***
+
+> If the primal problem is not degenerate then the dual problem has a unique optimizer. If the dual problem is not degenerate, then the primal problem has a unique optimizer. Multiple dual optimizers imply primal degeneracy and multiple primal optimizers imply dual degeneracy. The reverse is not true. 
 
 # References
 
