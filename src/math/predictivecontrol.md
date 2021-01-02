@@ -104,8 +104,85 @@ $$
 f(z) \geq f(z*) = f* \forall z \in S, \; with \; z* \in S
 $$
 
-### Continuous Problems
+### Constraint Categories
+Constraints are three major types of constraints
 
+1. Control variables Incremental Variation $u(k)$
+	* Hard constraints on the size of the control signal movement (rate of change of the control variable $\Delta u(k)$)
+$$
+\Delta u^{min} \leq \Delta u(k) \leq \Delta u^{max}
+$$
+2. Control variables Amplitude $u(k)$
+	* These are the most commonly encounters constraint. Similar to before:
+$$
+u^{min} \leq u(k) \leq u^{max}
+$$
+
+>> $u(k)$ is an incremental variable. For instance, if a value is allowed to open in the range between 15% and 80%, and the valve's normal operating value is at 30% then $u_{min} = 15% - 30% = -15%$ and $u_{max} = 80% - 30% = 50%$.
+
+3. Output $y(k)$ or state variables $x(k)$.
+	* We can specify the operating range for the plant output by stating: 
+$$
+y^{min} \leq y(k) \leq y^{max}
+$$
+
+>> Output constraints are often implemented as 'soft' constraints in the way that a slack variable $s_v > 0$ is added to the constraints: 
+
+$$
+y^{min} - s_v \leq y(k) \leq y^{max} + s_v
+$$
+
+>> Output constraints often cause a large change in both the control and incremental control variables when they are enforced (become active). When that happens, the control or incremental control can violate their own constraints. Implementing a slack variable 'relaxes' the constraint and helps in avoiding conflicts.
+
+### MIMO Constraints
+***Constraint for control movement***
+
+$$
+\begin{array}{l}
+- (C_1 u(k_i - 1) + C_2 \Delta U) \leq -U^{min} \\
+-(C_1 u(k_i - 1) + C_2 \Delta U) \leq U^{max}   \\
+\end{array}
+$$
+
+Where $C_1$ is a column of identify matrices and $C_2$ is a square matrix of identity matrices that is incrementally added on each row.
+
+***Constraint for increment control***
+
+$$
+\begin{array}{l}
+- \Delta U \leq \Delta U^{min} \\
+\Delta U \leq \Delta U^{max} \\
+\end{array}
+$$
+
+***Output Constraint in terms of $\Delta U$***
+$$
+Y^{min} \leq Fx(k_i) + \Phi \Delta U \leq Y^{max}
+$$
+
+The model predictive control in the presence of hard constraints is proposed as finding the parameter vector $\Delta U$ that minimizes: 
+
+$$
+J = (R_s Fx(k_i))^T (R_s-Fx(k_i)) - 2 \Delta U^T \Phi^T (R_s Fx(k_i))+ \Delta U^T (\Phi^T \Phi + \bar{R}) \Delta U
+$$
+
+Subject to the inequality constraints (pg 52 Kiuping Wang):
+
+$$
+\begin{bmatrix}
+M_1 \\
+M_2 \\
+M_3 \\
+\end{bmatrix}
+\Delta U \leq
+\begin{bmatrix}
+N_1 \\
+N_2 \\
+N_3 \\
+\end{bmatrix}
+$$
+
+### Continuous Problems
 ***Nonlinear mathematical program***
 $$
 \begin{array}{lll}
@@ -145,6 +222,7 @@ $$
 > Consider a convex optimization problem and let $\bar{z}$ be a local optimizer. Then $\bar{z}$ is a global optimizer. 
 
 ## Optimality Conditions
+
 ### Optimality Conditions For Unconstrained Problems
 
 ***Theorem 1.2*** (Necessary Condition):
@@ -159,7 +237,56 @@ $$
 
 > Supposed that $f:\mathbb{R}^s \rightarrow \mathbb{R}$ is differentiable at $\bar{z}$. If $f$ is convex, then $\bar{z}$ is a global minimizer iff $\nabla f(\bar{z}) = 0$
 
+## Lagrange Multipliers
+To minimize the objective function subject to equality constraints, consider the Lagrange expression:
+
+$$
+J = 1/2 x^T Ex + x^T F + \lambda^T (Mx - \gamma)
+$$
+
+The process of minimizing is to take the partial derivative in terms of $x$ and $\lambda$, then equate these derivatives to zero.
+
+$$
+\begin{array}{l}
+\lambda = -(ME^{-1}M^T)^{-1} (\gamma + ME^{-1}F) \\
+x = -E^{-1} - E^{-1}M^T \gamma = x^{0} - E^{-1} M^T \gamma \\
+\end{array}
+$$
+
+Where $x^{0} = -E^{-1} F$ is the global optimal solution that will give a minimum of the original cost function $J$ without constraints, and the second term is a correction term due to the equality constraints.
+
+## Minimization with Inequality Constraints
+The inequality constraint $Mx \leq \gamma$ may comprise of active ($M_i x = \gamma_i$) and inactive ($M_i x < \gamma_i$)where $M_i$ together with $\gamma_i$ form the $i^{th}$ inequality constraint and are the $i^{th}$ element of the $gamma$ vector.
+
+### Kuhn-Tucker Conditions
+$$
+\begin{array}{l}
+Ex + F + M^T \lambda = 0 \\
+Mx - \gamma = 0 \\
+\lambda^T (Mx - \gamma) = 0 \\
+\lambda \geq 0 \\
+\end{array}
+$$
+
 ## Lagrange Duality Theory
+The Lagrange multipliers are called dual variables in optimization literature. This method will lead to simple programming procedures for finding optimal solutions of constrained minimization problems. 
+
+The primal problem is equivalent to $max_{\lambda \geq 0}min_{x}1/2 x^T Ex + x^T F + \lambda^T (Mx - \gamma)$. The minimization of $x$ is unconstrained and is attained by 
+
+$$
+x = -E^{-1}(F+M^T\lambda)
+$$
+
+Substituting x into the equation above we get the dual:
+
+$$
+\begin{array}{l}
+max_{\lambda \geq 0} (-1/2 \lambda^T H \lambda - \lambda^T K - 1/2 F^TE^{-1}F)\\
+H = ME^{-1}M^T \\
+K = \gamma + ME^{-1}F \\
+\end{array}
+$$
+
 Consider the optimality problem. Any feasible point $\bar{z}$ provides an upper bound to the optimal value $f(\bar{z}) \geq f*$ ($f*$ being the optimal value). The Lagrange Duality Theory generates a lower boundary for $f*$.
 
 Starting from the same problem, we construct another problem with different variables and constrains. In other words, from the primal problem, we will develop the dual problem.
@@ -294,6 +421,19 @@ $$
 
 > If the primal problem is not degenerate then the dual problem has a unique optimizer. If the dual problem is not degenerate, then the primal problem has a unique optimizer. Multiple dual optimizers imply primal degeneracy and multiple primal optimizers imply dual degeneracy. The reverse is not true. 
 
+## Quadratic Programming
+The objective function $J$ and the constraints are expressed as:
+
+$$
+\begin{array}{l}
+J = 1/2 x^T Ex + x^T F \\
+Mx \leq \gamma \\
+\end{array}
+$$
+
+Without loss of generality $E$ can be assumed to be symmetric and positive definite.
+
 # References
 
 * [Predictive Control - Borrelli, Bemporad, Marari](http://www.mpc.berkeley.edu/mpc-course-material)
+* [Model Predictive Control System Design and Implementation Using MATLAB - Jiuping Wang]()
