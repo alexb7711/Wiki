@@ -433,6 +433,9 @@ $$
 
 Without loss of generality $E$ can be assumed to be symmetric and positive definite.
 
+# Individual Notes
+[Model Predictive Control System Design and Implementation Using MATLAB® by Liuping Wang](mpcsysdesignusingmatlab)
+
 # References
 
 * [Predictive Control - Borrelli, Bemporad, Marari](http://www.mpc.berkeley.edu/mpc-course-material)
