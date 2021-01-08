@@ -198,6 +198,23 @@ A point $\bar{z} \in \mathbb{R}^s$ is **feasible** for the continuous optimizati
 1. it belongs to $Z$
 2. It satisfies the inequality and equality constraints
 
+$\bar{z}$ is also a *local optimizer* or *local minimizer* if it satisfies the constraints above as well as $||z - \bar{z}|| \leq R$ where $R$ defines a region (think of stability definitions Linear Multi-Variable Control).
+
+***Active, Inactive, and Redundant Cases***: 
+Consider a feasible point. $g_i(\bar{z}) = 0$ is active,$ g_i(\bar{z}) < 0$ is inactive, and a constraint is redundant if removing the constraint does not change the feasible set $S$.
+
+***Eliminating Equality Constraints***:
+The simplest way to remove equality constraints is to replace them with two inequalities:
+
+$$
+\begin{array}{l}
+h_i(z) = 0 \\
+\therefore is\;replaced\;by \\
+h_i (z) \leq 0 \\
+-h_i (z) \leq 0 \\
+\end{array}
+$$
+
 ### Integer and Mixed-Integer Problems
 If the optimization problem 
 
@@ -217,6 +234,8 @@ subj. \; to             & g_i(z_c,z_b) \leq 0                              & for
 $$
 
 ## Convexity
+The standard optimization problem is said to be convex if the cost function $f$ is convex on $Z$ *and* $S$ is a convex set. A fundamental property of convex optimization problems is that local optimizers are also global optimizers (think calculus optimization: min/max of parabola is global).
+
 ***Theorem 1.1***
 
 > Consider a convex optimization problem and let $\bar{z}$ be a local optimizer. Then $\bar{z}$ is a global optimizer. 
@@ -454,6 +473,7 @@ Without loss of generality $E$ can be assumed to be symmetric and positive defin
 
 # Individual Notes
 [Model Predictive Control System Design and Implementation Using MATLAB® by Liuping Wang](mpcsysdesignusingmatlab)
+[Predictive Control by Borelli, Bemporad, and Morari](predictivecontrolforlinearandhybridsys)
 
 # References
 

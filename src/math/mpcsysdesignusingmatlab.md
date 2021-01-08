@@ -467,4 +467,116 @@ which is used to reference this hard constraint later on.
 > $\Phi^T \Phi + \bar{R}$ is the Hessian matrix and is assumed to be positive definite.
 
 ## Numerical Solutions to Quadratic Programming
+### Quadratic Programming for Equality Constraints
+Consider the function
 
+$$
+J = 1/2 x^T Ex + x^T F + \lambda^T (Mx - \gamma)
+$$
+
+This form is known as the Lagrangian. This represents the same information as saying $J$ subject to some set of constraints (as we did before). The constraint information can be extracted by taking the partial derivatives of the equation.
+
+$$
+\begin{array}{l}
+\frac{\partial J}{\partial x} = Ex + F + M^T \lambda = 0 \\
+\frac{\partial J}{\partial \lambda} = Mx - \gamma = 0 \\
+\end{array}
+$$
+
+When represented in this form, it is easily observed that we are just solving a simple set of equations. Solving for $\lambda$ and $x$ gives us the optimal values:
+
+$$
+\begin{array}
+\lambda = -(ME^{-1}M^T)^{-1}(\gamma + ME^{-1}F) \\
+\x = -E^{-1} (M^T \lambda + F) \\
+\end{array}
+$$
+
+***Note***
+
+> expanding $x = -E^{-1}F - E^{-1}M^T \lambda = x^0 - E^{-1} M^T \lambda$ shows us to terms. $x^0$ is the global optimal solution that gives a minimum of the original cost function $J$ without constraints, the second term is a correction term due to the equality constraints.
+
+### Minimization with Inequality Constraints
+In the minimization with inequality constraints, the number of constraints may be larger than the number of decision variables. Because we express these constraints with a $\leq$ we can have both *active* and *inactive* constraints (active when $M_i x = \gamma_i$ and inactive when $M_i x < \gamma_i$). The Kuhn-Tucker conditions define the active and inactive constraints in terms of Lagrange multipliers.
+
+$$
+\begin{array}{rc}
+Ex + F + \sum_{i \in S_{act}} \lambda_i M_{i}^T = 0 &                  \\
+M_i x - \gamma_i = 0                                & i \in S_{act}    \\
+M_i x - \gamma_i < 0                                & i \notin S_{act} \\
+\lambda \geq 0                                      & i \in S_{act}    \\
+\lambda = 0                                         & i \notin S_{act} \\
+\end{array}
+$$
+
+Similarly to before, the optimal solution with inequality constraints has the closed-form
+
+$$
+\being{array}{l}
+\lambda_{act} = -(M_{act} E^{-1} M_{act}^T)^{-1} (\gamma_{act} + M_{act} E^{-1} F) \\
+x = -E^{-1} (F + M_{act}^T \lambda_{act} \\ 
+\end{array}
+$$
+
+#### Active Set Method
+The essence of this method is to define a "working set". By this, reduce the constraint set to only the active constraints. The steps are as follows:
+
+1. Solve equality constraint problem
+2. If $\lambda_i \geq 0 \forall \lambda$ then the point is a local solution to the original problem
+3. If $\lambda_i < 0$ then the objective function can be decreased by *relaxing* the constraint (in other words, delete the constraint from the equation because it is not active)
+
+### Primal-Dual Method
+As of until now, we have been observing *primal* methods, this is where the solutions are based on the decision variables. In the active set methods, the active constraints need to be identified along with the optimal decision variables. If there are many constrains, the computational load can get quite high. The use of a *dual* method can be used to systematically identify the constraints that are not active. The dual problem is formulated as follows:
+
+$$
+\mathop{max}_{\lambda \geq 0} \mathop{min}_{x} [1/2 x^T Ex + x^T F + \lambda^T (Mx - \gamma)]
+$$
+
+As we have seen before, the unconstrained solution is given to be $x = -E^{-1} (F+M^T \lambda)$. Substituting this into the equation above we get: 
+
+$$
+\mathop{max}_{\lambda \geq 0} (1/2 \lambda^T H\lambdax + \lambda^T K + 1/2\gamma^T E^{-1} \gamma)
+$$
+
+Therefore:
+
+$$
+J = 1/2 \lambda^T H\lambdax + \lambda^T K + 1/2\gamma^T E^{-1} \gamma
+$$
+
+subject to $\lambda \geq 0$, denoted $\lambda_{act}$. The primal vector $x$ is obtained by:
+
+$$
+x = -E^{-1} F - E^{-1} M_{act}^T \lambda_{act}
+$$
+
+where the constraints are treated as equality constraints in the computation.
+
+### Hildreth's Quadratic Programming Procedure
+In this algorithm, the direction vectors were selected to be the basis vector. The method is explicitly shown as:
+
+$$
+\lambda_{i}^{m+1} = max(0,w_i^{m+1}
+$$
+
+with
+
+$$
+w_{i}^{m+1} = - \frac{1}{h_{ii}} [k_i + \sum_{j=1}^{i-1} h_{ij} \lambda_{j}^{m+1} + \sum_{j = i+1}^{n} h_{ij} \lambda_{j}^m]
+$$
+
+Where $ij$ represents the row/column respectively.
+
+### Closed-Form Solution of $\lambda *$
+If we knew beforehand all of the active constraints, we could simply solve 
+
+$$
+\lambda_{act}* = -(M_{act} E^{-1} M_{act}^T)^{-1} (\gamma_{act} + M_{act} E^{-1} F) 
+$$
+
+to give us all of our optimal solutions.
+
+## Predictive Control with Constraints on Input Variables
+* View book to read through examples (pg 69)
+
+# Discrete-Time MPC Using Laguerre Functions
