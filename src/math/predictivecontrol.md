@@ -416,12 +416,31 @@ $$
 
 > The LP is said to be dual degenerate if its dual problem is primal degenerate.
 
-
 ***Lemma 2.2***
 
 > If the primal problem is not degenerate then the dual problem has a unique optimizer. If the dual problem is not degenerate, then the primal problem has a unique optimizer. Multiple dual optimizers imply primal degeneracy and multiple primal optimizers imply dual degeneracy. The reverse is not true. 
 
+Generally, the statement "if the dual problem is primal degenerate then the primal problem as multiple optima" is not true.
+
 ## Quadratic Programming
+### Continuous Case (Borrelli, Bemporad, Marari)
+The continuous problem is called a quadratic problem if the constraint functions are affine and the cost function is a convex quadratic function.
+
+It generally takes the form of 
+
+$$
+\begin{array}{cl}
+min_z         & 1/2 z' Hz + q'z + r \\
+subject \; to & Gz \leq w \\
+              & Az = 0
+\end{array}
+$$
+
+Where $H = H^T \succ 0 \in \mathbb{R}^{s\times s}$. The level curves, created by the cost function above, draw ellipsoids. The smaller the ellipsoid, the smaller the cost $k_i$. Since $H$ is strictly positive definite, the quadratic program cannot have multiple optima or unbounded solutions. If $P$ is not empty ($P$ being the feasible set), then the solution is unique.
+
+1. The optimizer lies strictly inside the feasible polyhedron
+2. The optimizer lies on the boundary of the feasible polyhedron
+
 The objective function $J$ and the constraints are expressed as:
 
 $$
