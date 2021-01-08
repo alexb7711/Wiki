@@ -1,5 +1,8 @@
 ---
-title: "Model Predictive Control System Design and Implementation Using MATLAB by Liuping Wang"
+title: "Model Predictive Control System Design and Implementation Using MATLAB"
+author: 
+    - Liuping Wang 
+    - Alexander Brown
 header-includes:
     - \usepackage[a4paper, margin=0.5in]{geometry}
     - \usepackage{listings}
@@ -75,6 +78,7 @@ $$
 		C_m B_m \\
 	\end{bmatrix}
 	\Delta u(k)  \\
+	\\
 	y(k) = 
 	\begin{bmatrix}
 		o_m \\
@@ -179,6 +183,7 @@ Consider the system
 $$
 \begin{array}{l}
 x_m(k+1) = A_m x_m (k) + B_m u(k) + B_d w(k) \\
+\\
 y(k) = C_m x_m (k) \\
 \end{array}
 $$
@@ -211,6 +216,7 @@ $$
 	C_m B_d \\
 	\end{bmatrix}
 	\epsilon (k) \\
+	\\
 	y(k) = 
 	\begin{bmatrix}
 	o_m & I_{q \times q}
@@ -293,4 +299,172 @@ r(k)
 $$ 
 
 # Discrete-Time MPC with Constrains
+## Formulation of Constrained Control Problem
+The core idea is to modify $\Delta u$ to suit the constraint that has been *activated*. This section discusses the operational constraints that are frequently uncounted in the design of control systems. These operational constraints are presented as linear inequalities of the control and plant variables.
+
+### Frequently Used Operational Constraints
+***Constraints on the Control Variable Incremental Variation***:
+These are hard constraints on rate of change of the control variable.
+
+$$
+\Delta u^{min} \leq \Delta u(k) \leq \Delta u^{max}
+$$
+
+***Constraints on the Amplitude of the Control Variable***:
+These are the most commonly encountered constraints.
+
+$$
+u^{min} \leq u(k) \leq u^{max}
+$$
+
+***Note***
+
+> $u(k)$ is an incremental variable, not the actual physical variable. The actual physical control variable equals the incremental variable $u$ plus its steady-state value $u_{ss}$. For example, if a valve is allowed to open in the range between 15% and 80% and its normal operating value is 30%, then $u^{min} = 15\% - 30\% = -15\%$ and $u^{max} = 80\% - 30\% = 50\%$. 
+
+***Output Constraints***:
+We can specify the operating range for the plant 
+
+$$
+y^{min} \leq y(k) \leq y^{max}
+$$
+
+Output variables are often implemented as "soft" constraints:
+
+$$
+y^{min} - s_v \leq y(k) \leq y^{max} + s_v
+$$
+
+Output constraints often cause large changes in both the control and incremental variables when they are enforced (become active). When this happens, the control or incremental control variables can violate their constraints and the problem of constraint conflict occur.
+
+### Constraints as Part of the Optimal Solution
+The key to translating these constraints into linear inequalities and relating them to the problem is to parameterize the constraint variables using the same parameter vector $\Delta U$ as the one used in the design of predictive control.
+
+Traditionally the constraints are imposed for all future sampling instants. In the case of a manipulated variable constraint we write:
+
+$$
+\begin{bmatrix}
+u(k_i) \\
+u(k_i + 1) \\
+u(k_i + 2) \\
+\vdots \\
+u(k_i + N_c - 1) \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+I \\
+I \\
+I \\
+\vdots \\
+I \\
+\end{bmatrix}
+u(k_i - 1) +
+\begin{bmatrix}
+I      & 0 & 0 & \cdots & 0 \\
+I      & I & 0 & \cdots & 0 \\
+I      & I & I & \cdots & 0 \\
+\vdots &   &   &        &   \\
+I      & I & I & \cdots & I \\
+\end{bmatrix}
+\begin{bmatrix}
+\Delta u(k_i) \\
+\Delta u(k_i + 1) \\
+\Delta u(k_i + 2) \\
+\vdots \\
+\Delta u(k_i + N_c - 1) \\
+\end{bmatrix}
+$$
+
+This can be re-written in a more compact matrix form:
+
+$$ 
+\begin{array}{c}
+-(C_1 u(k_i -1) + C_2 \Delta U) \leq -U^{min} \\
+(C_1 u(k_i -1) + C_2 \Delta U) \leq U^{max} \\
+\end{array}
+$$
+
+The output constraints are given as 
+
+$$
+Y^{min} \leq Fx(k_i) \Phi \Delta U \leq Y^{max}
+$$
+
+Finally, the model predictive control in the presence of hard constraints is proposed as finding the parameter vector $\Delta U$ that minimizes:
+
+$$
+J = (R_s - Fx(k_i))^T (R_s - Fx(k_i)) - 2 \Delta U^T \Phi^T (R_s Fx(k_i)) + \Delta U^T (\Phi^T \Phi + \bar{R}) \Delta U
+$$
+
+subject to the inequality constraints 
+
+$$
+\begin{bmatrix}
+M_1 \\
+M_2 \\
+M_3 \\
+\end{bmatrix}
+\Delta U \leq 
+\begin{bmatrix}
+N_1 \\
+N_2 \\
+N_3 \\
+\end{bmatrix}
+$$
+
+Where
+
+$$
+\begin{array}{c}
+M_1 = 
+\begin{bmatrix}
+-C_2 \\
+C_2 \\
+\end{bmatrix} \\
+\\
+M_2 = 
+\begin{bmatrix}
+-I\\
+I \\
+\end{bmatrix} \\
+\\
+M_3 = 
+\begin{bmatrix}
+-\Phi \\
+\Phi \\
+\end{bmatrix} \\
+\\
+N_1 = 
+\begin{bmatrix}
+-U^{min} + C_1 u(k_i - 1) \\
+U^{max} - C_1 u(k_i - 1) \\
+\end{bmatrix} \\
+\\
+N_2 = 
+\begin{bmatrix}
+-U^{min} \\
+U^{max} \\
+\end{bmatrix} \\
+\\
+N_3 = 
+\begin{bmatrix}
+-Y^{min} + Fx(k_i) \\
+Y^{max} - \ Fx(k_i)\
+\end{bmatrix} \\
+\\
+\end{array}
+$$
+
+This is further compacted by writing 
+
+$$
+M \Delta U \leq \gamma
+$$
+
+which is used to reference this hard constraint later on.
+
+***Note***
+
+> $\Phi^T \Phi + \bar{R}$ is the Hessian matrix and is assumed to be positive definite.
+
+## Numerical Solutions to Quadratic Programming
 
