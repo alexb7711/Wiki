@@ -477,5 +477,5 @@ Without loss of generality $E$ can be assumed to be symmetric and positive defin
 
 # References
 
-* [Predictive Control - Borrelli, Bemporad, Marari](http://www.mpc.berkeley.edu/mpc-course-material)
 * [Model Predictive Control System Design and Implementation Using MATLAB - Jiuping Wang]()
+* [Predictive Control - Borrelli, Bemporad, Marari](http://www.mpc.berkeley.edu/mpc-course-material)

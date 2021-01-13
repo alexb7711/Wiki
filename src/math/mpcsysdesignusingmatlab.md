@@ -486,9 +486,9 @@ $$
 When represented in this form, it is easily observed that we are just solving a simple set of equations. Solving for $\lambda$ and $x$ gives us the optimal values:
 
 $$
-\begin{array}
+\begin{array}{l}
 \lambda = -(ME^{-1}M^T)^{-1}(\gamma + ME^{-1}F) \\
-\x = -E^{-1} (M^T \lambda + F) \\
+x = -E^{-1} (M^T \lambda + F) \\
 \end{array}
 $$
 
@@ -512,7 +512,7 @@ $$
 Similarly to before, the optimal solution with inequality constraints has the closed-form
 
 $$
-\being{array}{l}
+\begin{array}{l}
 \lambda_{act} = -(M_{act} E^{-1} M_{act}^T)^{-1} (\gamma_{act} + M_{act} E^{-1} F) \\
 x = -E^{-1} (F + M_{act}^T \lambda_{act} \\ 
 \end{array}
@@ -535,13 +535,13 @@ $$
 As we have seen before, the unconstrained solution is given to be $x = -E^{-1} (F+M^T \lambda)$. Substituting this into the equation above we get: 
 
 $$
-\mathop{max}_{\lambda \geq 0} (1/2 \lambda^T H\lambdax + \lambda^T K + 1/2\gamma^T E^{-1} \gamma)
+\mathop{max}_{\lambda \geq 0} (1/2 \lambda^T H\lambda + \lambda^T K + 1/2\gamma^T E^{-1} \gamma)
 $$
 
 Therefore:
 
 $$
-J = 1/2 \lambda^T H\lambdax + \lambda^T K + 1/2\gamma^T E^{-1} \gamma
+J = 1/2 \lambda^T H\lambda + \lambda^T K + 1/2\gamma^T E^{-1} \gamma
 $$
 
 subject to $\lambda \geq 0$, denoted $\lambda_{act}$. The primal vector $x$ is obtained by:
